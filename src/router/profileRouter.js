@@ -68,6 +68,13 @@ export const PROFILE_STRATEGIES = {
     promote: true,
     sanitizeChunk: false
   },
+  clinical: {
+    name: "CLINICAL",
+    regexMode: "heavy",
+    nerMode: "aggressive",
+    promote: true,
+    sanitizeChunk: false
+  },
 
   // ── CHAT PROFILES ──────────────────────────────────────────
   whatsapp_paciente: {

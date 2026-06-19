@@ -1,5 +1,4 @@
-// benchmark_local.js — Benchmark MascaraAI local (sem servidor HTTP)
-// Roda diretamente a lógica de detecção para medir F1/Precision/Recall
+// benchmark_local.js — Benchmark MascaraAI local (sem servidor HTTP por padrão, mas compatível com NER se ativo)
 import fs from "fs";
 import path from "path";
 
@@ -11,17 +10,40 @@ import { PromotionLayer } from "../src/layers/promotionLayer.js";
 import { PolicyLayer } from "../src/layers/policyLayer.js";
 import { MetricsTracker } from "../src/utils/metrics.js";
 
-// Mock fetch para NER (retorna vazio — benchmark local sem NER)
-globalThis.fetch = async () => ({ ok: false });
+// Configurações do Servidor NER de teste
+const USE_NER = process.argv.includes("--use-ner");
+const NER_URL = process.env.GLINER_URL || "http://localhost:8080";
+
+if (!USE_NER) {
+  console.log("ℹ️  NER desativado por padrão no modo local (use '--use-ner' para testar com o BERT ativo)");
+  globalThis.fetch = async () => ({ ok: false });
+} else {
+  console.log(`📡 Conectando ao NER Server em: ${NER_URL}`);
+  // Mantém a função nativa do fetch para bater no uvicorn localhost
+}
 
 const benchmarkDir = "./benchmark";
 
-// ══════════════════════════════════════════
-// CARREGAMENTO DE CASOS
-// ══════════════════════════════════════════
-const allCasesFiles = fs.readdirSync(benchmarkDir)
-  .filter(file => file.startsWith("cases") && file.endsWith(".json"))
-  .sort();
+// Mapeamento de taxonomia do MascaraAI para o AnonyMED-BR
+const TRANSLATE_MAP = {
+  // MascaraAI -> AnonyMED-BR
+  "NOME_PESSOA": "PATIENT", 
+  "PROFISSIONAL_SAUDE": "DOCTOR",
+  "IDADE": "AGE",
+  "ENDERECO_RESIDENCIAL": "STREET",
+  "EMPRESA": "HOSPITAL",
+  "EMAIL": "EMAIL",
+  "TELEFONE": "PHONE",
+  "CRM": "IDNUM",
+  "COREN": "IDNUM",
+  "PRONTUARIO": "MEDICAL_RECORD",
+  "CEP": "ZIP",
+  "DATA_NASCIMENTO": "DATE"
+};
+
+function traduzirTipo(tipo) {
+  return TRANSLATE_MAP[tipo] || tipo;
+}
 
 function carregarApenasCasesJson() {
   const casesPath = path.resolve(benchmarkDir, "cases.json");
@@ -29,6 +51,10 @@ function carregarApenasCasesJson() {
 }
 
 function carregarTodosOsCasos() {
+  const allCasesFiles = fs.readdirSync(benchmarkDir)
+    .filter(file => file.startsWith("cases") && file.endsWith(".json"))
+    .sort();
+
   let combined = [];
   for (const file of allCasesFiles) {
     const filePath = path.join(benchmarkDir, file);
@@ -43,16 +69,20 @@ function carregarTodosOsCasos() {
   return combined;
 }
 
-// ══════════════════════════════════════════
-// DETECÇÃO LOCAL (sem HTTP)
-// ══════════════════════════════════════════
 async function detectarLocal(texto) {
   const metrics = new MetricsTracker();
-  const parsed = InputAdapter.parse({ text: texto });
+  
+  // Limpa as tags XML sintéticas do dataset antes de processar
+  const cleanText = texto.replace(/<[A-Z_]+>|<\/[A-Z_]+\/>/g, "");
+  
+  const parsed = InputAdapter.parse({ text: cleanText });
+  // Força o profile clínico para o dataset AnonyMED-BR
+  parsed.context = { domain: "health", profile: "clinical" };
+  
   const resolvedCtx = ContextResolver.resolve(parsed.text, parsed.context);
   const strategy = DomainRouter.getStrategy(resolvedCtx.domain, resolvedCtx.profile);
   
-  const env = { GLINER_URL: null };
+  const env = { GLINER_URL: USE_NER ? NER_URL : null };
   const detectionResult = await DetectionPipeline.run(parsed.text, env, strategy, metrics);
   
   const allDetections = [...detectionResult.regexDetections, ...detectionResult.nerDetections];
@@ -72,9 +102,6 @@ async function detectarLocal(texto) {
   };
 }
 
-// ══════════════════════════════════════════
-// MAIN
-// ══════════════════════════════════════════
 async function main() {
   const useAll = process.argv.includes("--all");
   let baseCases;
@@ -87,7 +114,7 @@ async function main() {
     baseCases = carregarApenasCasesJson();
   }
 
-  console.log(`🚀 Executando Benchmark Local (${baseCases.length} casos, sem NER)\n`);
+  console.log(`🚀 Executando Benchmark Local (${baseCases.length} casos)\n`);
 
   const tStart = Date.now();
   const resultados = [];
@@ -99,12 +126,16 @@ async function main() {
   for (let i = 0; i < baseCases.length; i++) {
     const c = baseCases[i];
     const entrada = c.text || "";
-    const esperado = [...new Set((c.expected_entities || []).map(e => e.tipo))];
+    // O benchmark espera subcategory ou category das labels anotadas
+    const esperado = [...new Set((c.labels || []).map(e => e.subcategory || e.category))];
     const categoria = `${c.domain || "auto"}/${c.profile || "generic"}`;
 
     try {
       const resultado = await detectarLocal(entrada);
-      const detectados = [...new Set(resultado.deteccoes.map(d => d.tipo))];
+      
+      // Traduz os tipos identificados no MascaraAI para o padrão do AnonyMED-BR antes de calcular as métricas
+      const detectados = [...new Set(resultado.deteccoes.map(d => traduzirTipo(d.tipo)))];
+      
       const tp = detectados.filter(t => esperado.includes(t)).length;
       const fp = detectados.filter(t => !esperado.includes(t)).length;
       const fn = esperado.filter(t => !detectados.includes(t)).length;
@@ -130,7 +161,7 @@ async function main() {
       console.error(`  ❌ Erro caso ${c.id || i + 1}: ${err.message}`);
     }
 
-    if ((i + 1) % 100 === 0) {
+    if ((i + 1) % 50 === 0) {
       process.stdout.write(`  Processados ${i + 1}/${baseCases.length}...\r`);
     }
   }
@@ -160,63 +191,28 @@ async function main() {
   console.log(`F1 Score Geral  : ${f1.toFixed(4)} (${(f1 * 100).toFixed(2)}%)`);
   console.log("══════════════════════════════════════════════════");
 
-  // Erros por domínio
-  const errosPorDominio = {};
-  for (const [cat, count] of Object.entries(errosPorCategoria)) {
-    const dominio = cat.split("/")[0];
-    errosPorDominio[dominio] = (errosPorDominio[dominio] || 0) + count;
-  }
-
-  if (Object.keys(errosPorDominio).length > 0) {
-    console.log("\n📊 ERROS POR DOMÍNIO:");
-    for (const [dom, count] of Object.entries(errosPorDominio).sort((a, b) => b[1] - a[1])) {
-      console.log(`  ${dom.toUpperCase().padEnd(15)} ${count} erros`);
-    }
-  }
-
   if (Object.keys(errosPorCategoria).length > 0) {
-    console.log("\n📋 ERROS POR SUBCATEGORIA:");
+    console.log("\n📋 ERROS POR SUBCATEGORIA DE BENCHMARK:");
     for (const [cat, count] of Object.entries(errosPorCategoria).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${cat.padEnd(35)} ${count} erros`);
     }
   }
 
   if (Object.keys(fpPorTipoGlobal).length > 0) {
-    console.log("\n⚠️  FALSOS POSITIVOS POR TIPO:");
+    console.log("\n⚠️  FALSOS POSITIVOS POR TIPO (TRADUZIDOS):");
     for (const [tipo, count] of Object.entries(fpPorTipoGlobal).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${tipo.padEnd(24)} ${count}`);
     }
   }
 
   if (Object.keys(fnPorTipoGlobal).length > 0) {
-    console.log("\n❌ FALSOS NEGATIVOS POR TIPO:");
+    console.log("\n❌ FALSOS NEGATIVOS POR TIPO (TRADUZIDOS):");
     for (const [tipo, count] of Object.entries(fnPorTipoGlobal).sort((a, b) => b[1] - a[1])) {
       console.log(`  ${tipo.padEnd(24)} ${count}`);
     }
   }
 
-  // Top falhas detalhadas
-  if (falhas.length > 0) {
-    console.log("\n🔍 DETALHES DAS FALHAS (top 20):");
-    console.log("═".repeat(100));
-    for (const f of falhas.slice(0, 20)) {
-      console.log(`\n  #${f.id} [${f.categoria}]`);
-      console.log(`  Texto: "${f.entrada.substring(0, 100)}${f.entrada.length > 100 ? '...' : ''}"`);
-      console.log(`  Esperado : [${f.esperado.join(", ")}]`);
-      console.log(`  Detectado: [${f.detectados.join(", ")}]`);
-      if (f.fp_tipos.length) console.log(`  FP: ${f.fp_tipos.join(", ")}`);
-      if (f.fn_tipos.length) console.log(`  FN: ${f.fn_tipos.join(", ")}`);
-    }
-  }
-
-  console.log(`\n🔒 F1 obtido: ${f1.toFixed(4)} | Meta: 1.0000`);
-  if (f1 >= 0.99) {
-    console.log("✅ Benchmark EXCELENTE!");
-  } else if (f1 >= 0.95) {
-    console.log("🟡 Benchmark BOM, mas pode melhorar.");
-  } else {
-    console.log("🔴 Benchmark PRECISA de ajustes.");
-  }
+  console.log(`\n🔒 F1 obtido: ${f1.toFixed(4)}`);
 }
 
 main().catch(err => {

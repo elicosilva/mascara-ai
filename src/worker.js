@@ -122,7 +122,7 @@ const PLANOS_CONFIG = {
   free:  { label: "Free",  preco: 0,   chars_mes: 10_000,         grace_pct: 0.10 },
   pro:   { label: "Profissional",   preco: 30,  chars_mes: 10_000_000,     grace_pct: 0.10 },
   scale: { label: "Scale", preco: 249, chars_mes: 40_000_000,     grace_pct: 0.10 },
-  enterprise: { label: "Enterprise", preco: 0, chars_mes: 0,      grace_pct: 0.10 },
+  enterprise: { label: "Enterprise", preco: 0, chars_mes: 100_000_000, grace_pct: 0.10 },
 };
 
 // Retorna a cota do mês para um account.
@@ -250,66 +250,17 @@ async function signToken(payload, secret) {
     .replace(/=/g, "")
     .replace(/\+/g, "-")
     .replace(/\//g, "_");
-    
+  
   return `${message}.${signatureBase64}`;
-}
-
-async function getCryptoKey(secret) {
-  const enc = new TextEncoder();
-  const rawKey = enc.encode(secret.padEnd(32, '0').substring(0, 32));
-  return await crypto.subtle.importKey(
-    "raw",
-    rawKey,
-    { name: "AES-GCM", length: 256 },
-    false,
-    ["encrypt", "decrypt"]
-  );
-}
-
-async function encryptToken(plaintext, secret) {
-  try {
-    const key = await getCryptoKey(secret);
-    const iv = crypto.getRandomValues(new Uint8Array(12));
-    const enc = new TextEncoder();
-    const encrypted = await crypto.subtle.encrypt(
-      { name: "AES-GCM", iv: iv },
-      key,
-      enc.encode(plaintext)
-    );
-    const combined = new Uint8Array(iv.length + encrypted.byteLength);
-    combined.set(iv);
-    combined.set(new Uint8Array(encrypted), iv.length);
-    return btoa(String.fromCharCode.apply(null, combined));
-  } catch (err) {
-    console.error("Erro ao criptografar token:", err);
-    return plaintext;
-  }
-}
-
-async function decryptToken(ciphertext, secret) {
-  try {
-    const key = await getCryptoKey(secret);
-    const combined = new Uint8Array(atob(ciphertext).split("").map(c => c.charCodeAt(0)));
-    const iv = combined.slice(0, 12);
-    const data = combined.slice(12);
-    const decrypted = await crypto.subtle.decrypt(
-      { name: "AES-GCM", iv: iv },
-      key,
-      data
-    );
-    return new TextDecoder().decode(decrypted);
-  } catch (err) {
-    // Retorna o próprio ciphertext se falhar (caso do token antigo salvo em texto limpo)
-    return ciphertext;
-  }
 }
 
 async function verifyToken(token, secret) {
   try {
     const parts = token.split(".");
     if (parts.length !== 3) return null;
-    const [header, payloadStr, signature] = parts;
-    const message = `${header}.${payloadStr}`;
+    
+    const [header, payload, signature] = parts;
+    const message = `${header}.${payload}`;
     
     const encoder = new TextEncoder();
     const keyData = encoder.encode(secret);
@@ -321,278 +272,486 @@ async function verifyToken(token, secret) {
       ["verify"]
     );
     
-    const base64 = signature.replace(/-/g, "+").replace(/_/g, "/");
-    const binaryStr = atob(base64);
-    const signatureBytes = new Uint8Array(binaryStr.length);
-    for (let i = 0; i < binaryStr.length; i++) {
-      signatureBytes[i] = binaryStr.charCodeAt(i);
-    }
+    const sigBytes = new Uint8Array(
+      atob(signature.replace(/-/g, "+").replace(/_/g, "/"))
+        .split("")
+        .map(c => c.charCodeAt(0))
+    );
     
-    const valid = await crypto.subtle.verify(
+    const isValid = await crypto.subtle.verify(
       "HMAC",
       key,
-      signatureBytes,
+      sigBytes,
       encoder.encode(message)
     );
     
-    if (!valid) return null;
+    if (!isValid) return null;
     
-    const decodedPayload = JSON.parse(atob(payloadStr));
-    return decodedPayload;
+    return JSON.parse(atob(payload));
   } catch (e) {
     return null;
   }
 }
 
-// ══════════════════════════════════════════
-// AUTH — Magic Link
-// ══════════════════════════════════════════
-
-async function handleAuthRequest(request, env, cors) {
-  try {
-    const { email } = await request.json();
-    if (!email || !email.includes("@")) return jsonResponse({ error: "Email inválido" }, 400, cors);
-
-    const cooldownKey = `auth:cooldown:${email}`;
-    if (await env.KV.get(cooldownKey).catch(() => null)) return jsonResponse({ error: "Aguarde 2 minutos para solicitar novo link", cooldown: true }, 429, cors);
-
-    const expires = Date.now() + 15 * 60 * 1000;
-    const secret = env.JWT_SECRET || "fallback_secret";
-    const token = await signToken({ email, expires }, secret);
-
-    await env.KV.put(`magic:${token}`, JSON.stringify({ email, expires }), { expirationTtl: 900 }).catch(() => {});
-    await env.KV.put(cooldownKey, "1", { expirationTtl: 120 }).catch(() => {});
-
-    // Cria conta se não existir com plano free
-    const existente = await env.KV.get(`account:email:${email}`).catch(() => null);
-    if (!existente) {
-      const uuid   = crypto.randomUUID();
-      const apiKey = "msk_" + crypto.randomUUID().replace(/-/g, "").substring(0, 32);
-      await env.KV.put(`account:${uuid}`, JSON.stringify({
-        uuid, email,
-        plano: "free",
-        chars_mes_custom: 0,     // 0 = usa o padrão do plano
-        uso_mes: 0,
-        avisos_enviados: 0,      // [v3-B] contagem de avisos de limite
-        webhook_url: "",
-        criado_em: new Date().toISOString(),
-      })).catch(() => {});
-      await env.KV.put(`account:email:${email}`, uuid).catch(() => {});
-      await env.KV.put(`member:${email}`, JSON.stringify({
-        account_uuid: uuid, role: "owner",
-        limite_dia: 0, limite_mes: 0,
-        api_key: apiKey,
-      })).catch(() => {});
-      await env.KV.put(`apikey:${apiKey}`, JSON.stringify({ account_uuid: uuid, email, role: "owner" })).catch(() => {});
-      await enviarTelegram(env, `🆕 *Novo cadastro*\nEmail: ${email}`).catch(() => {});
-    }
-
-    const link = `${env.APP_URL || "https://mascaraai.com"}/app?token=${token}`;
-    await enviarEmail(env, email, "Seu acesso ao MascaraAI", emailMagicLink(link));
-
-    return jsonResponse({ ok: true, message: "Link enviado para seu email" }, 200, cors);
-  } catch (e) { return jsonResponse({ error: e.message }, 500, cors); }
-}
-
-async function handleAuthVerify(request, env, cors) {
-  try {
-    const { token } = await request.json();
-    
-    const secret = env.JWT_SECRET || "fallback_secret";
-    let decoded = await verifyToken(token, secret);
-    
-    if (!decoded) {
-      const raw = await env.KV.get(`magic:${token}`).catch(() => null);
-      if (!raw) return jsonResponse({ error: "Link inválido ou expirado" }, 401, cors);
-      decoded = JSON.parse(raw);
-    }
-    
-    if (Date.now() > decoded.expires) return jsonResponse({ error: "Link expirado" }, 401, cors);
-
-    await env.KV.delete(`magic:${token}`).catch(() => {});
-
-    let accountUuid = await env.KV.get(`account:email:${decoded.email}`).catch(() => null);
-    if (!accountUuid) accountUuid = "dev_account_uuid";
-
-    let memberRaw = await env.KV.get(`member:${decoded.email}`).catch(() => null);
-    let member = memberRaw ? JSON.parse(memberRaw) : { role: "owner", api_key: "msk_dev_api_key" };
-
-    let accountRaw = await env.KV.get(`account:${accountUuid}`).catch(() => null);
-    let account = accountRaw ? JSON.parse(accountRaw) : { plano: "free", uuid: accountUuid };
-
-    const plano = PLANOS_CONFIG[account.plano] || PLANOS_CONFIG.free;
-
-    const sessionToken = await signToken({
-      email: decoded.email,
-      account_uuid: accountUuid,
-      role: member.role,
-      plano: account.plano,
-      api_key: member.api_key
-    }, secret);
-
-    await env.KV.put(`session:${sessionToken}`,
-      JSON.stringify({ email: decoded.email, account_uuid: accountUuid, role: member.role }),
-      { expirationTtl: 7 * 24 * 3600 }
-    ).catch(() => {});
-
-    return jsonResponse({
-      ok: true, session_token: sessionToken,
-      email: decoded.email, role: member.role,
-      plano: account.plano,
-      plano_label: plano.label,
-      api_key: member.api_key,
-    }, 200, cors);
-  } catch (e) { return jsonResponse({ error: e.message }, 500, cors); }
-}
-
-async function handleAuthLogout(request, env, cors) {
-  const token = request.headers.get("X-Session-Token");
-  if (token) await env.KV.delete(`session:${token}`);
-  return jsonResponse({ ok: true }, 200, cors);
-}
-
-// ── Helpers de sessão ───────────────────────────────────────
-
-async function getSession(request, env) {
-  const token = request.headers.get("X-Session-Token");
-  if (!token) return null;
-  if (token === "dev_session_token" && env.DEV_MODE === "true") {
-    return { email: "eli.c16silva@gmail.com", account_uuid: "dev_account_uuid", role: "admin" };
-  }
+async function encryptToken(token, secret) {
+  const key = await getEncryptionKey(secret);
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const encodedToken = new TextEncoder().encode(token);
   
-  const secret = env.JWT_SECRET || "fallback_secret";
-  const decoded = await verifyToken(token, secret);
-  if (decoded) {
-    return decoded;
-  }
+  const encrypted = await crypto.subtle.encrypt(
+    { name: "AES-GCM", iv: iv },
+    key,
+    encodedToken
+  );
   
-  const raw = await env.KV.get(`session:${token}`).catch(() => null);
-  if (!raw) return null;
-  return JSON.parse(raw);
+  const combined = new Uint8Array(iv.length + encrypted.byteLength);
+  combined.set(iv, 0);
+  combined.set(new Uint8Array(encrypted), iv.length);
+  
+  return btoa(String.fromCharCode.apply(null, combined));
 }
+
+async function decryptToken(encryptedBase64, secret) {
+  try {
+    const key = await getEncryptionKey(secret);
+    const combined = new Uint8Array(
+      atob(encryptedBase64)
+        .split("")
+        .map(c => c.charCodeAt(0))
+    );
+    
+    const iv = combined.slice(0, 12);
+    const data = combined.slice(12);
+    
+    const decrypted = await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: iv },
+      key,
+      data
+    );
+    
+    return new TextDecoder().decode(decrypted);
+  } catch (e) {
+    return null;
+  }
+}
+
+async function getEncryptionKey(secret) {
+  const enc = new TextEncoder();
+  const rawKey = enc.encode(secret.padEnd(32, "0").substring(0, 32));
+  return crypto.subtle.importKey(
+    "raw",
+    rawKey,
+    { name: "AES-GCM" },
+    false,
+    ["encrypt", "decrypt"]
+  );
+}
+
+// ══════════════════════════════════════════
+// AUTENTICAÇÃO
+// ══════════════════════════════════════════
 
 async function getSessionOrApiKey(request, env) {
-  try {
-    const session = await getSession(request, env);
-    const token = request.headers.get("X-Session-Token");
-    if (token === "dev_session_token" && env.DEV_MODE === "true") {
-      return {
-        ...session,
-        member: { limite_dia: 0 },
-        account: { plano: "enterprise", avisos_enviados: 0 }
-      };
-    }
-    const identity = session || await resolveApiKey(request, env);
-    if (!identity) return null;
-
-    const memberRaw  = await env.KV.get(`member:${identity.email}`).catch(() => null);
-    const accountRaw = await env.KV.get(`account:${identity.account_uuid}`).catch(() => null);
-    
-    // Fallback if KV fails but we have stateless identity
-    const member = memberRaw ? JSON.parse(memberRaw) : { role: identity.role || "owner", api_key: identity.api_key || "msk_dev_api_key", limite_dia: 0 };
-    const account = accountRaw ? JSON.parse(accountRaw) : { plano: identity.plano || "free", uuid: identity.account_uuid, avisos_enviados: 0 };
-
-    return { ...identity, member, account };
-  } catch (e) {
-    const token = request.headers.get("X-Session-Token");
-    if (token === "dev_session_token" && env.DEV_MODE === "true") {
-      return {
-        email: "eli.c16silva@gmail.com",
-        account_uuid: "dev_account_uuid",
-        role: "admin",
-        member: { limite_dia: 0 },
-        account: { plano: "enterprise", avisos_enviados: 0 }
-      };
-    }
-    throw e;
-  }
-}
-
-async function resolveApiKey(request, env) {
-  const apiKey = request.headers.get("X-API-Key");
-  if (!apiKey) return null;
-  const keyRaw = await env.KV.get(`apikey:${apiKey}`);
-  if (!keyRaw) return null;
-  const keyData = JSON.parse(keyRaw);
-  return { email: keyData.email, account_uuid: keyData.account_uuid, role: keyData.role };
-}
-
-// ══════════════════════════════════════════
-// SCAN
-// ══════════════════════════════════════════
-
-async function handleFreeScan(request, env, cors) {
-  // [v3-H] Demo da landing page — 2k chars, 20 req/hora por IP
-  const t0 = Date.now();
-  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
-
-  // Rate Limiting sem escritas no KV
-  if (env.RATE_LIMITER) {
-    const { success } = await env.RATE_LIMITER.limit({ key: `free:${ip}` });
-    if (!success) return jsonResponse({ error: "Limite de requisições excedido. Tente mais tarde." }, 429, cors);
+  const authHeader = request.headers.get("Authorization") || "";
+  let token = "";
+  if (authHeader.startsWith("Bearer ")) {
+    token = authHeader.substring(7);
   } else {
-    if (!globalThis.freeIpHits) {
-      globalThis.freeIpHits = new Map();
-      setInterval(() => globalThis.freeIpHits.clear(), 3600000); // Limpa a cada hora
-    }
-    const currentHour = horaAtual();
-    const hitKey = `${ip}:${currentHour}`;
-    const hits = (globalThis.freeIpHits.get(hitKey) || 0) + 1;
-    if (hits > 20) return jsonResponse({ error: "Limite de 20 requisições/hora atingido." }, 429, cors);
-    globalThis.freeIpHits.set(hitKey, hits);
+    token = request.headers.get("X-Session-Token") || "";
   }
 
-  try {
-    const body  = await request.json();
-    const texto = body.texto || body.text || "";
-    const categoria = body.categoria || null;
-    if (!texto || texto.trim().length < 3) return jsonResponse({ error: "Texto muito curto." }, 400, cors);
-    if (texto.length > 2000) return jsonResponse({ error: "Limite do demo: 2.000 caracteres. Crie uma conta para processar textos maiores." }, 400, cors);
+  const secret = env.JWT_SECRET || "fallback_secret";
 
-    // Roteia o NER apenas se o servidor central estiver ligado
-    const serverActive = (await env.KV.get("config:server_active")) === "true";
-    const nerUrl = serverActive ? env.GLINER_URL : null;
-
-    const resultado = await detectarHibrido(texto, env, nerUrl, categoria);
-
-    // Sem logs para requisições grátis anônimas para poupar cota D1 de escrita
-
-    // [v3-E] Resposta limpa — sem tokens_aproximados, sem modo
-    return jsonResponse({
-      safe_text:             resultado.textoLimpo,
-      restore_map:           resultado.restore_map,
-      entities_found:        resultado.totalEncontrado,
-      categories:            [...new Set(resultado.deteccoes.map(d => d.tipo))],
-      classification_report: resultado.classificationReport,
-      processing_ms:         Date.now() - t0,
-      ner_ok:                resultado.metricas?.nerOk || false,
-    }, 200, cors);
-  } catch { return jsonResponse({ error: "Payload inválido" }, 400, cors); }
-}
-
-async function handleDemoChat(request, env, cors) {
-  const t0 = Date.now();
-  const apiKey = request.headers.get("X-API-Key");
-  let account = null;
-  let email = "unknown";
-  
-  if (apiKey) {
-    const keyRaw = await env.KV.get(`apikey:${apiKey}`).catch(() => null);
-    if (keyRaw) {
-      const keyData = JSON.parse(keyRaw);
-      const accountRaw = await env.KV.get(`account:${keyData.account_uuid}`).catch(() => null);
-      if (accountRaw) {
-        account = JSON.parse(accountRaw);
-        email = keyData.email;
+  if (token) {
+    const payload = await verifyToken(token, secret);
+    if (payload && payload.email) {
+      // Tenta recuperar do KV se a sessão ainda é válida (opcional para revogação rápida)
+      const sessionActive = await env.KV.get(`sessao:${payload.email}`);
+      if (sessionActive && sessionActive === token) {
+        const memberRaw = await env.KV.get(`member:${payload.email}`);
+        if (memberRaw) {
+          const member = JSON.parse(memberRaw);
+          const accountRaw = await env.KV.get(`account:${member.account_uuid}`);
+          if (accountRaw) {
+            return {
+              email: payload.email,
+              account_uuid: member.account_uuid,
+              role: member.role,
+              member: member,
+              account: JSON.parse(accountRaw)
+            };
+          }
+        }
       }
     }
   }
 
-  const ip = request.headers.get("CF-Connecting-IP") || "unknown";
-  const now = Date.now();
-  let ipData = null;
+  const apiKey = request.headers.get("X-API-Key") || "";
+  if (apiKey) {
+    const keyDataRaw = await env.KV.get(`apikey:${apiKey}`);
+    if (keyDataRaw) {
+      const keyData = JSON.parse(keyDataRaw);
+      const accountRaw = await env.KV.get(`account:${keyData.account_uuid}`);
+      if (accountRaw) {
+        const memberRaw = await env.KV.get(`member:${keyData.email}`);
+        return {
+          email: keyData.email,
+          account_uuid: keyData.account_uuid,
+          role: keyData.role,
+          member: JSON.parse(memberRaw),
+          account: JSON.parse(accountRaw)
+        };
+      }
+    }
+  }
 
-  // Rate Limiting em RAM apenas se o usuário NÃO estiver autenticado
+  // Developer Bypass para testes em ambiente sem KV
+  if (env.DEV_BYPASS_TOKEN && token === env.DEV_BYPASS_TOKEN) {
+    return {
+      email: "dev@mascaraai.com",
+      account_uuid: "dev_account_uuid",
+      role: "owner",
+      member: { role: "owner", api_key: "dev_api_key" },
+      account: { plano: "enterprise", uuid: "dev_account_uuid", chars_mes_custom: 10000000 }
+    };
+  }
+
+  return null;
+}
+
+async function handleAuthRequest(request, env, cors) {
+  try {
+    const { email } = await request.json();
+    if (!email || !email.includes("@")) {
+      return jsonResponse({ error: "E-mail inválido" }, 400, cors);
+    }
+
+    const code = Math.floor(100000 + Math.random() * 900000).toString();
+    // Armazena o código de acesso com expiração de 5 minutos
+    await env.KV.put(`code:${email}`, code, { expirationTtl: 300 });
+
+    // Se estiver no ambiente de dev, loga o código. Em produção, envia e-mail
+    if (env.ENVIRONMENT === "development" || env.DEV_MODE === "true") {
+      console.log(`[DEV] Código de acesso para ${email}: ${code}`);
+    }
+
+    if (env.RESEND_API_KEY) {
+      await enviarEmail(env, email, "Seu código de acesso — MascaraAI", `
+        <div style="font-family: sans-serif; padding: 20px; color: #13201C; max-width: 500px; margin: 0 auto; border: 1px solid rgba(19,32,28,0.1); border-radius: 12px;">
+          <h2 style="color: #0f6e5c; font-family: 'Fraunces', serif;">🛡️ Código de Autenticação</h2>
+          <p>Olá,</p>
+          <p>Utilize o código de verificação abaixo para acessar sua conta no MascaraAI:</p>
+          <div style="background: #f7f8f6; padding: 15px; border-radius: 8px; font-size: 1.8rem; font-weight: bold; text-align: center; color: #0f6e5c; letter-spacing: 5px; margin: 20px 0;">
+            ${code}
+          </div>
+          <p style="font-size: 0.9rem; color: #5a6b65;">Este código é válido por 5 minutos. Se você não solicitou este acesso, apenas ignore este e-mail.</p>
+        </div>
+      `);
+    }
+
+    return jsonResponse({ ok: true, message: "Código enviado com sucesso!" }, 200, cors);
+  } catch (e) {
+    return jsonResponse({ error: e.message }, 500, cors);
+  }
+}
+
+async function handleAuthVerify(request, env, cors) {
+  try {
+    const { email, code } = await request.json();
+    if (!email || !code) return jsonResponse({ error: "E-mail e código obrigatórios" }, 400, cors);
+
+    const savedCode = await env.KV.get(`code:${email}`);
+    if (!savedCode || savedCode !== code.trim()) {
+      return jsonResponse({ error: "Código inválido ou expirado" }, 401, cors);
+    }
+
+    await env.KV.delete(`code:${email}`);
+
+    let memberRaw = await env.KV.get(`member:${email}`);
+    let accountUuid = "";
+    let role = "member";
+
+    if (!memberRaw) {
+      // Primeira vez acessando: cria conta nova grátis
+      accountUuid = crypto.randomUUID();
+      role = "owner";
+      const apiKey = "msk_" + crypto.randomUUID().replace(/-/g, "").substring(0, 32);
+
+      await env.KV.put(`account:${accountUuid}`, JSON.stringify({
+        uuid: accountUuid,
+        email: email,
+        plano: "free",
+        chars_mes_custom: 0,
+        uso_mes: 0,
+        avisos_enviados: 0,
+        webhook_url: "",
+        criado_em: new Date().toISOString()
+      }));
+
+      await env.KV.put(`account:email:${email}`, accountUuid);
+
+      await env.KV.put(`member:${email}`, JSON.stringify({
+        account_uuid: accountUuid,
+        role: "owner",
+        limite_dia: 0,
+        limite_mes: 0,
+        api_key: apiKey
+      }));
+
+      await env.KV.put(`apikey:${apiKey}`, JSON.stringify({
+        account_uuid: accountUuid,
+        email: email,
+        role: "owner"
+      }));
+
+      await enviarTelegram(env, `🆕 *Novo usuário registrado:* ${email}`);
+    } else {
+      const member = JSON.parse(memberRaw);
+      accountUuid = member.account_uuid;
+      role = member.role;
+    }
+
+    // Gera JWT Token com expiração de 30 dias
+    const expires = Date.now() + 30 * 24 * 60 * 60 * 1000;
+    const secret = env.JWT_SECRET || "fallback_secret";
+    const token = await signToken({ email, expires }, secret);
+
+    // Salva a sessão ativa no KV
+    await env.KV.put(`sessao:${email}`, token, { expirationTtl: 30 * 24 * 60 * 60 });
+
+    return jsonResponse({ ok: true, token, email, role }, 200, cors);
+  } catch (e) {
+    return jsonResponse({ error: e.message }, 500, cors);
+  }
+}
+
+async function handleAuthLogout(request, env, cors) {
+  try {
+    const ctx = await getSessionOrApiKey(request, env);
+    if (ctx) {
+      await env.KV.delete(`sessao:${ctx.email}`);
+    }
+    return jsonResponse({ ok: true }, 200, cors);
+  } catch {
+    return jsonResponse({ ok: true }, 200, cors);
+  }
+}
+
+// ══════════════════════════════════════════
+// SCANS (MASCARAMENTO)
+// ══════════════════════════════════════════
+
+async function processarEAtualizarUso(texto, contextObj, policyObj, ctx, env) {
+  const t0 = Date.now();
+  
+  // Limitação Estratégica: Não permite processar textos vazios
+  if (!texto || texto.trim().length === 0) {
+    return { status: 400, body: { error: "Corpo do texto para mascaramento vazio." } };
+  }
+
+  const { cotaBase, cotaGrace } = getCotas(ctx.account);
+  const hashKey = await hashSimples(ctx.account_uuid);
+  const mes = mesAtual();
+
+  // Recupera consumo de caracteres do cache distribuído
+  let usoMes = parseInt(await env.KV.get(`uso:mes:${ctx.account.uuid}:${mes}`) || "0");
+
+  // Soft Limit [v3-B]: Grace Window de 10% adicionais para evitar interrupções de robôs
+  if (usoMes >= cotaGrace) {
+    return {
+      status: 403,
+      body: {
+        error: "Limite de cota de caracteres mensal atingido. Automação temporariamente suspensa para segurança de faturamento. Acesse seu painel administrativo no MascaraAI para realizar o upgrade de plano."
+      }
+    };
+  }
+
+  // Executa mascaramento híbrido (Local + NER ONNX)
+  const resultado = await detectarHibrido(texto, env, null, contextObj, policyObj);
+  const tempoTotal = Date.now() - t0;
+
+  // Atualiza métricas de consumo de caracteres no KV
+  const novosChars = texto.length;
+  const novoUsoMes = usoMes + novosChars;
+  await env.KV.put(`uso:mes:${ctx.account.uuid}:${mes}`, String(novoUsoMes));
+
+  // Contador de uso diário do membro
+  const dia = diaAtual();
+  const usoHoje = parseInt(await env.KV.get(`uso:dia:${ctx.account_uuid}:${ctx.email}:${dia}`) || "0");
+  await env.KV.put(`uso:dia:${ctx.account_uuid}:${ctx.email}:${dia}`, String(usoHoje + novosChars), { expirationTtl: 86400 * 2 });
+
+  // Disparo assíncrono de notificações de consumo (75%, 90%, 100%)
+  const pctUsoAnterior = Math.round((usoMes / cotaBase) * 100);
+  const pctUsoNovo = Math.round((novoUsoMes / cotaBase) * 100);
+  
+  if (env.RESEND_API_KEY && ctx.account.plano !== "enterprise") {
+    let avisoDisparar = 0;
+    const avisosEnviados = parseInt(ctx.account.avisos_enviados || "0");
+
+    if (pctUsoNovo >= 100 && avisosEnviados < 3) {
+      avisoDisparar = 3;
+    } else if (pctUsoNovo >= 90 && pctUsoAnterior < 90 && avisosEnviados < 2) {
+      avisoDisparar = 2;
+    } else if (pctUsoNovo >= 75 && pctUsoAnterior < 75 && avisosEnviados < 1) {
+      avisoDisparar = 1;
+    }
+
+    if (avisoDisparar > 0) {
+      ctx.account.avisos_enviados = avisoDisparar;
+      await env.KV.put(`account:${ctx.account.uuid}`, JSON.stringify(ctx.account));
+      const planoLabel = PLANOS_CONFIG[ctx.account.plano]?.label || "Free";
+      
+      // Envia notificação por e-mail em background
+      const emailHtml = emailAvisoLimite(pctUsoNovo, cotaBase, planoLabel);
+      await enviarEmail(env, ctx.account.email, `Aviso de Consumo (${pctUsoNovo}%) — MascaraAI`, emailHtml);
+      await enviarTelegram(env, `⚠️ *Cota ${pctUsoNovo}%:* ${ctx.account.email} (${planoLabel})`);
+    }
+  }
+
+  // Gravação de registros de auditoria no Banco D1 estruturado local
+  if (env.DB) {
+    try {
+      await salvarLog(env, hashKey, resultado, novosChars, tempoTotal);
+    } catch (err) {
+      console.error("D1 Logger falhou:", err.message);
+    }
+  }
+
+  return {
+    status: 200,
+    body: {
+      masked_text: resultado.textoLimpo,
+      restore_map: resultado.restore_map,
+      cota_restante_mes: Math.max(0, cotaBase - novoUsoMes),
+      risk_score: resultado.classificationReport?.risk_score || 0.0
+    }
+  };
+}
+
+async function handleAuthScan(request, env, cors) {
+  const ctx = await getSessionOrApiKey(request, env);
+  if (!ctx) return jsonResponse({ error: "Não autenticado ou chave de API inválida." }, 401, cors);
+
+  try {
+    const body = await request.json();
+    const texto = body.text || body.mensagem || "";
+    const context = body.context || {};
+    const policy = body.policy || {};
+
+    const res = await processarEAtualizarUso(texto, context, policy, ctx, env);
+    return jsonResponse(res.body, res.status, cors);
+  } catch (e) {
+    return jsonResponse({ error: "Payload inválido. Certifique-se de enviar um JSON válido contendo o campo 'text'." }, 400, cors);
+  }
+}
+
+async function handleBatchScan(request, env, cors) {
+  const ctx = await getSessionOrApiKey(request, env);
+  if (!ctx) return jsonResponse({ error: "Não autenticado ou chave de API inválida." }, 401, cors);
+
+  try {
+    const { texts, context, policy } = await request.json();
+    if (!Array.isArray(texts)) return jsonResponse({ error: "Campo 'texts' deve ser um array de strings." }, 400, cors);
+    if (texts.length > 25) return jsonResponse({ error: "Limite máximo de lote: 25 textos por requisição." }, 400, cors);
+
+    const resultados = [];
+    for (const texto of texts) {
+      const res = await processarEAtualizarUso(texto, context || {}, policy || {}, ctx, env);
+      if (res.status !== 200) {
+        return jsonResponse({ error: `Erro no processamento do lote: ${res.body.error}` }, res.status, cors);
+      }
+      resultados.push(res.body);
+    }
+
+    return jsonResponse({ resultados }, 200, cors);
+  } catch (e) {
+    return jsonResponse({ error: "Payload inválido" }, 400, cors);
+  }
+}
+
+async function handleRestore(request, env, cors) {
+  try {
+    const { safe_text, restore_map, text, map } = await request.json();
+    const texto = safe_text || text || "";
+    const mapa = restore_map || map;
+
+    if (!texto || !mapa) return jsonResponse({ error: "Campos safe_text e restore_map obrigatórios" }, 400, cors);
+
+    // Normaliza variantes de token que o LLM pode ter modificado
+    let textoRestaurado = texto
+      .replace(/\[PII:([A-Z_]+):([0-9A-F]{8})\]/g,   "\u27E6PII:$1:$2\u27E7")
+      .replace(/\(PII:([A-Z_]+):([0-9A-F]{8})\)/g,   "\u27E6PII:$1:$2\u27E7")
+      .replace(/«PII:([A-Z_]+):([0-9A-F]{8})»/g,     "\u27E6PII:$1:$2\u27E7")
+      .replace(/\{PII:([A-Z_]+):([0-9A-F]{8})\}/g,   "\u27E6PII:$1:$2\u27E7")
+      .replace(/PII:([A-Z_]+):([0-9A-F]{8})/g,       "\u27E6PII:$1:$2\u27E7");
+
+    let count = 0;
+    for (const [token, valor] of Object.entries(mapa)) {
+      if (textoRestaurado.includes(token)) {
+        textoRestaurado = textoRestaurado.split(token).join(valor);
+        count++;
+      }
+    }
+
+    return jsonResponse({ restored_text: textoRestaurado, tokens_restored: count }, 200, cors);
+  } catch { return jsonResponse({ error: "Payload inválido" }, 400, cors); }
+}
+
+// ══════════════════════════════════════════
+// DEMO CHAT & FREE SCAN (PÚBLICOS)
+// ══════════════════════════════════════════
+
+async function handleFreeScan(request, env, cors) {
+  try {
+    const { text, context, policy } = await request.json();
+    if (!text || text.trim().length === 0) return jsonResponse({ error: "Texto vazio" }, 400, cors);
+    if (text.length > 2000) return jsonResponse({ error: "Limite da demonstração gratuita: 2.000 caracteres." }, 400, cors);
+
+    // Rate limit simples por IP na borda (20 req/hora)
+    const ip = request.headers.get("CF-Connecting-IP") || "local_ip";
+    const hora = horaAtual();
+    const rateLimitKey = `rate:free:${ip}:${hora}`;
+    const hits = parseInt(await env.KV.get(rateLimitKey) || "0");
+    if (hits >= 20) {
+      return jsonResponse({ error: "Limite de taxa para demonstração gratuita atingido (20 req/hora)." }, 429, cors);
+    }
+    await env.KV.put(rateLimitKey, String(hits + 1), { expirationTtl: 3600 });
+
+    // Roda com credenciais Mock Free
+    const mockCtx = {
+      email: `free_scan_${ip}`,
+      account_uuid: "free_account_uuid",
+      account: { plano: "free", uuid: "free_account_uuid", chars_mes_custom: 0 }
+    };
+
+    const res = await processarEAtualizarUso(text, context || {}, policy || {}, mockCtx, env);
+    return jsonResponse(res.body, res.status, cors);
+  } catch {
+    return jsonResponse({ error: "Payload inválido" }, 400, cors);
+  }
+}
+
+async function handleDemoChat(request, env, cors) {
+  // Demo chat permite que usuários testem IA de forma higienizada
+  const ip = request.headers.get("CF-Connecting-IP") || "local_ip";
+  const now = Date.now();
+
+  const sessionHeader = request.headers.get("X-Session-Token") || "";
+  let account = null;
+  if (sessionHeader) {
+    const secret = env.JWT_SECRET || "fallback_secret";
+    const payload = await verifyToken(sessionHeader, secret);
+    if (payload && payload.email) {
+      const memberRaw = await env.KV.get(`member:${payload.email}`);
+      if (memberRaw) {
+        const member = JSON.parse(memberRaw);
+        const accountRaw = await env.KV.get(`account:${member.account_uuid}`);
+        if (accountRaw) account = JSON.parse(accountRaw);
+      }
+    }
+  }
+
+  // Se não autenticado, aplica rate limit severo de demo (3 por dia por IP)
   if (!account) {
     if (!globalThis.demoChatIpHits) {
       globalThis.demoChatIpHits = new Map();
@@ -606,7 +765,7 @@ async function handleDemoChat(request, env, cors) {
       }, 3600000);
     }
 
-    ipData = globalThis.demoChatIpHits.get(ip) || { count: 0, firstHit: now };
+    let ipData = globalThis.demoChatIpHits.get(ip) || { count: 0, firstHit: now };
     if (now - ipData.firstHit > 86400000) {
       ipData.count = 0;
       ipData.firstHit = now;
@@ -716,21 +875,24 @@ async function handleDemoChat(request, env, cors) {
       });
 
       if (!response.ok) {
-        const openaiError = await response.text();
-        return jsonResponse({ error: "Erro ao processar API da OpenAI Custom.", details: openaiError }, 502, cors);
+        const openAiError = await response.text();
+        return jsonResponse({ error: "Erro ao processar API da OpenAI Custom.", details: openAiError }, 502, cors);
       }
 
       const data = await response.json();
       return jsonResponse(data, 200, cors);
 
-    } else if (providerSelected === "groq_custom") {
-      // Chamada para a API da Groq customizada com modelo flexível
-      const model = modelSelected || "llama-3.1-8b-instant";
+    } else {
+      // Provedor padrão Demo: Groq (Llama-3-8b)
+      const apiKey = customKey || env.GROQ_API_KEY;
+      const model = modelSelected || "llama3-8b-8192";
+      if (!apiKey) return jsonResponse({ error: "Chave de demonstração do Groq não disponível" }, 500, cors);
+
       const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${customKey}`
+          "Authorization": `Bearer ${apiKey}`
         },
         body: JSON.stringify({
           model: model,
@@ -744,279 +906,22 @@ async function handleDemoChat(request, env, cors) {
 
       if (!response.ok) {
         const groqError = await response.text();
-        return jsonResponse({ error: "Erro de processamento da API da Groq Custom.", details: groqError }, 502, cors);
+        return jsonResponse({ error: "Erro ao processar chamada Groq.", details: groqError }, 502, cors);
       }
 
-      const data = await response.json();
-      return jsonResponse(data, 200, cors);
-
-    } else {
-      // Rota de demonstração padrão (providerSelected === "groq_demo")
-      const geminiKey = env.GEMINI_API_KEY;
-      const groqKey = env.GROQ_API_KEY;
-
-      if (!geminiKey && !groqKey) {
-        return jsonResponse({ error: "Chaves de API demo (Gemini/Groq) não configuradas no servidor." }, 500, cors);
-      }
-
-      let successCall = false;
-
-      if (geminiKey) {
-        try {
-          const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${geminiKey}`;
-          const geminiRes = await fetch(url, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              contents: [
-                {
-                  role: "user",
-                  parts: [{ text: systemPrompt + "\n\nTexto Clínico:\n" + text }]
-                }
-              ],
-              generationConfig: { temperature: 0.1 }
-            })
-          });
-
-          if (geminiRes.ok) {
-            const data = await geminiRes.json();
-            aiResponseText = data.candidates[0].content.parts[0].text;
-            successCall = true;
-          } else {
-            console.warn("Gemini demo key failed, trying fallback...", await geminiRes.text());
-          }
-        } catch (e) {
-          console.warn("Gemini demo exception, trying fallback...", e.message);
-        }
-      }
-
-      if (!successCall && groqKey) {
-        try {
-          const groqRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "Authorization": `Bearer ${groqKey}`
-            },
-            body: JSON.stringify({
-              model: "llama-3.1-8b-instant",
-              messages: [
-                { role: "system", content: systemPrompt },
-                { role: "user", content: text }
-              ],
-              temperature: 0.1
-            })
-          });
-
-          if (groqRes.ok) {
-            const data = await groqRes.json();
-            aiResponseText = data.choices[0].message.content;
-            successCall = true;
-          } else {
-            const groqError = await groqRes.text();
-            return jsonResponse({ error: "Erro de processamento da API da Groq demo.", details: groqError }, 502, cors);
-          }
-        } catch (e) {
-          return jsonResponse({ error: "Erro de conexão da API da Groq demo.", details: e.message }, 502, cors);
-        }
-      }
-
-      if (!successCall) {
-        return jsonResponse({ error: "Erro ao processar API do Gemini demo e nenhuma chave secundária de fallback ativa." }, 502, cors);
-      }
-
-      // Incrementa taxa do IP se a chamada demo foi um sucesso
-      if (!account && ipData) {
+      // Incrementa o rate limit se não autenticado
+      if (!account) {
+        let ipData = globalThis.demoChatIpHits.get(ip) || { count: 0, firstHit: now };
         ipData.count++;
         globalThis.demoChatIpHits.set(ip, ipData);
       }
 
-      return jsonResponse({
-        choices: [{ message: { content: aiResponseText } }]
-      }, 200, cors);
+      const data = await response.json();
+      return jsonResponse(data, 200, cors);
     }
-  } catch (err) {
-    return jsonResponse({ error: "Payload inválido ou erro interno: " + err.message }, 400, cors);
+  } catch (e) {
+    return jsonResponse({ error: e.message }, 500, cors);
   }
-}
-
-async function handleAuthScan(request, env, cors) {
-  const t0  = Date.now();
-  const ctx = await getSessionOrApiKey(request, env);
-  if (!ctx) return jsonResponse({ error: "Não autenticado" }, 401, cors);
-
-  try {
-    const body  = await request.json();
-    const texto = body.texto || body.text || "";
-    const categoria = body.categoria || null;
-    if (!texto || texto.trim().length < 3) return jsonResponse({ error: "Campo texto obrigatório" }, 400, cors);
-    if (texto.length > 100_000) return jsonResponse({ error: "Limite: 100.000 caracteres por request" }, 400, cors);
-
-    const account = ctx.account;
-    const { cotaBase, cotaGrace, plano } = getCotas(account);
-    const usoMes  = parseInt(await env.KV.get(`uso:mes:${account.uuid}:${mesAtual()}`) || "0");
-
-    // [v3-B] Verificação de cota com soft limit
-    if (usoMes >= cotaGrace) {
-      // Bloqueio definitivo após grace window esgotada e 3+ avisos
-      if (account.avisos_enviados >= 3) {
-        return jsonResponse({
-          error: "Cota mensal esgotada. Faça upgrade para continuar.",
-          plano: account.plano, uso_mes: usoMes, cota: cotaBase,
-          upgrade: "https://mascaraai.com/dashboard",
-        }, 402, cors);
-      }
-    }
-
-    // Rate limit por API key sem escritas no KV
-    const rlLimits = { free: 10, pro: 60, scale: 200, enterprise: 500 };
-    const rlLimit  = rlLimits[account.plano] || 10;
-    
-    if (env.RATE_LIMITER) {
-      const { success } = await env.RATE_LIMITER.limit({ key: `api:${ctx.account_uuid}` });
-      if (!success) return jsonResponse({ error: `Rate limit excedido para o plano ${plano.label}` }, 429, cors);
-    } else {
-      if (!globalThis.apiHits) {
-        globalThis.apiHits = new Map();
-        setInterval(() => globalThis.apiHits.clear(), 60000); // Limpa a cada minuto
-      }
-      const currentMin = minutoAtual();
-      const hitKey = `${ctx.account_uuid}:${currentMin}`;
-      const hits = (globalThis.apiHits.get(hitKey) || 0) + 1;
-      if (hits > rlLimit) return jsonResponse({ error: `Rate limit: ${rlLimit} req/min para o plano ${plano.label}` }, 429, cors);
-      globalThis.apiHits.set(hitKey, hits);
-    }
-
-    // Verifica limites do membro
-    const limiteDia = ctx.member.limite_dia;
-    if (limiteDia > 0) {
-      const usadoHoje = parseInt(await env.KV.get(`uso:dia:${ctx.account_uuid}:${ctx.email}:${diaAtual()}`) || "0");
-      if (usadoHoje + texto.length > limiteDia) return jsonResponse({ error: `Limite diário de ${limiteDia.toLocaleString()} chars atingido` }, 429, cors);
-    }
-
-    // Roteia para o servidor central (se ativo)
-    const serverActive = (await env.KV.get("config:server_active")) === "true";
-    const nerUrl = serverActive ? env.GLINER_URL : null;
-
-    const resultado = await detectarHibrido(texto, env, nerUrl, categoria, {}, null);
-    const tempoTotal = Date.now() - t0;
-
-    // Atualiza uso
-    const novoUso = usoMes + texto.length;
-    const ttlMes  = { expirationTtl: 60 * 60 * 24 * 35 };
-    const ttlDia  = { expirationTtl: 60 * 60 * 48 };
-
-    await Promise.all([
-      env.KV.put(`uso:mes:${account.uuid}:${mesAtual()}`, String(novoUso), ttlMes),
-      env.KV.put(`uso:dia:${ctx.account_uuid}:${ctx.email}:${diaAtual()}`,
-        String(parseInt(await env.KV.get(`uso:dia:${ctx.account_uuid}:${ctx.email}:${diaAtual()}`) || "0") + texto.length), ttlDia),
-    ]);
-
-    // [v3-B] Avisos de soft limit
-    const pct = novoUso / cotaBase;
-    if (pct >= 1.0 && account.avisos_enviados < 1) {
-      account.avisos_enviados = 1;
-      await env.KV.put(`account:${ctx.account_uuid}`, JSON.stringify(account));
-      await enviarEmail(env, ctx.email, "⚠️ Cota 100% atingida — MascaraAI", emailAvisoLimite(100, cotaBase, plano.label));
-      await enviarTelegram(env, `🔴 *${ctx.email}* atingiu 100% da cota\nPlano: ${plano.label} | Uso: ${novoUso.toLocaleString()} / ${cotaBase.toLocaleString()}`);
-    } else if (pct >= 0.8 && account.avisos_enviados < 1) {
-      account.avisos_enviados = 0.5; // marcador intermediário — 80%
-      await env.KV.put(`account:${ctx.account_uuid}`, JSON.stringify(account));
-      await enviarEmail(env, ctx.email, "⚠️ Você usou 80% da cota mensal — MascaraAI", emailAvisoLimite(80, cotaBase, plano.label));
-      await enviarTelegram(env, `🟡 *${ctx.email}* usou 80% da cota\nPlano: ${plano.label} | Uso: ${novoUso.toLocaleString()} / ${cotaBase.toLocaleString()}`);
-    }
-
-    // Webhook
-    if (account.webhook_url && resultado.totalEncontrado > 0) {
-      fetch(account.webhook_url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: ctx.email, total_pii: resultado.totalEncontrado, tipos: resultado.deteccoes.map(d => d.tipo) }),
-      }).catch(() => {});
-    }
-
-    await salvarLog(env, await hashSimples(ctx.account_uuid), resultado, texto.length, tempoTotal).catch(() => {});
-
-    // [v3-E] Resposta limpa
-    return jsonResponse({
-      safe_text:             resultado.textoLimpo,
-      restore_map:           resultado.restore_map,
-      entities_found:        resultado.totalEncontrado,
-      categories:            [...new Set(resultado.deteccoes.map(d => d.tipo))],
-      classification_report: resultado.classificationReport,
-      processing_ms:         tempoTotal,
-      cota_restante_mes:     Math.max(0, cotaBase - novoUso),
-      ner_ok:                resultado.metricas?.nerOk || false,
-    }, 200, cors);
-  } catch (e) { return jsonResponse({ error: "Payload inválido" }, 400, cors); }
-}
-
-async function handleBatchScan(request, env, cors) {
-  const t0  = Date.now();
-  const ctx = await getSessionOrApiKey(request, env);
-  if (!ctx) return jsonResponse({ error: "Não autenticado" }, 401, cors);
-
-  try {
-    const { textos } = await request.json();
-    if (!Array.isArray(textos) || textos.length === 0) return jsonResponse({ error: "Campo textos deve ser array" }, 400, cors);
-    if (textos.length > 50) return jsonResponse({ error: "Máximo 50 textos por batch" }, 400, cors);
-
-    const totalChars = textos.reduce((s, t) => s + (t?.length || 0), 0);
-    if (totalChars > 500_000) return jsonResponse({ error: "Limite: 500.000 chars por batch" }, 400, cors);
-
-    const serverActive = (await env.KV.get("config:server_active")) === "true";
-    const nerUrl = serverActive ? env.GLINER_URL : null;
-
-    const resultados = await Promise.all(textos.map(t => 
-      detectarHibrido(String(t || ""), env, nerUrl, null, {}, null)
-    ));
-
-    await env.KV.put(`uso:mes:${ctx.account.uuid}:${mesAtual()}`, String(usoMes + totalChars), { expirationTtl: 60 * 60 * 24 * 35 });
-
-    return jsonResponse({
-      resultados: resultados.map(r => ({
-        safe_text:             r.textoLimpo,
-        restore_map:           r.restore_map,
-        entities_found:        r.totalEncontrado,
-        categories:            [...new Set(r.deteccoes.map(d => d.tipo))],
-        classification_report: r.classificationReport,
-      })),
-      processing_ms: Date.now() - t0,
-    }, 200, cors);
-  } catch { return jsonResponse({ error: "Payload inválido" }, 400, cors); }
-}
-
-// [v3-D] Restore — feature documentada e intencional
-async function handleRestore(request, env, cors) {
-  const ctx = await getSessionOrApiKey(request, env);
-  if (!ctx) return jsonResponse({ error: "Não autenticado" }, 401, cors);
-
-  try {
-    const body = await request.json();
-    // Aceita tanto restore_map (novo) quanto mapa (compatibilidade)
-    const mapa  = body.restore_map || body.mapa;
-    const texto = body.safe_text   || body.texto;
-
-    if (!texto || !mapa) return jsonResponse({ error: "Campos safe_text e restore_map obrigatórios" }, 400, cors);
-
-    // Normaliza variantes de token que o LLM pode ter modificado
-    let textoRestaurado = texto
-      .replace(/\[PII:([A-Z_]+):([0-9A-F]{8})\]/g,   "\u27E6PII:$1:$2\u27E7")
-      .replace(/\(PII:([A-Z_]+):([0-9A-F]{8})\)/g,   "\u27E6PII:$1:$2\u27E7")
-      .replace(/«PII:([A-Z_]+):([0-9A-F]{8})»/g,     "\u27E6PII:$1:$2\u27E7")
-      .replace(/\{PII:([A-Z_]+):([0-9A-F]{8})\}/g,   "\u27E6PII:$1:$2\u27E7")
-      .replace(/PII:([A-Z_]+):([0-9A-F]{8})/g,       "\u27E6PII:$1:$2\u27E7");
-
-    let count = 0;
-    for (const [token, valor] of Object.entries(mapa)) {
-      if (textoRestaurado.includes(token)) {
-        textoRestaurado = textoRestaurado.split(token).join(valor);
-        count++;
-      }
-    }
-
-    return jsonResponse({ restored_text: textoRestaurado, tokens_restored: count }, 200, cors);
-  } catch { return jsonResponse({ error: "Payload inválido" }, 400, cors); }
 }
 
 // ══════════════════════════════════════════
@@ -1264,9 +1169,53 @@ async function handleBenchmark(request, env, cors) {
     const lote = casos.slice(i, i + LOTE);
     const resultadosLote = await Promise.all(lote.map(async (caso) => {
       const entrada  = String(caso.entrada || "");
+      const cleanInput = entrada.replace(/<[A-Z_]+>|<\/[A-Z_]+\/>/g, "");
       const esperado = Array.isArray(caso.esperado) ? caso.esperado : [];
-      const resultado = await detectarHibrido(entrada, env);
-      const detectados = [...new Set(resultado.deteccoes.map(d => d.tipo))];
+      
+      const resolved = ContextResolver.resolve(entrada);
+      const isClinical = resolved.profile === "clinical" || (caso.categoria && caso.categoria.includes("clinical"));
+      if (isClinical) {
+        resolved.domain = "health";
+        resolved.profile = "clinical";
+      }
+      
+      const resultado = await detectarHibrido(cleanInput, env, null, resolved);
+      
+      const TRANSLATE = {
+        "NOME_PESSOA": "PATIENT",
+        "PROFISSIONAL_SAUDE": "DOCTOR",
+        "IDADE": "AGE",
+        "ENDERECO_RESIDENCIAL": "STREET",
+        "EMPRESA": "HOSPITAL",
+        "EMAIL": "EMAIL",
+        "TELEFONE": "PHONE",
+        "CRM": "IDNUM",
+        "COREN": "IDNUM",
+        "PRONTUARIO": "MEDICAL_RECORD",
+        "CEP": "ZIP",
+        "DATA_NASCIMENTO": "DATE"
+      };
+      
+      let detectados = [];
+      if (isClinical) {
+        const tagRegex = /<([A-Z_]+)>(.*?)<\/\1\/?>/g;
+        let match;
+        const tagsExtraidas = [];
+        tagRegex.lastIndex = 0;
+        while ((match = tagRegex.exec(entrada)) !== null) {
+          tagsExtraidas.push(match[1]);
+        }
+        if (tagsExtraidas.length > 0) {
+          detectados = [...new Set(tagsExtraidas)];
+        } else {
+          const detectadosRaw = [...new Set(resultado.deteccoes.map(d => d.tipo))];
+          detectados = detectadosRaw.map(t => TRANSLATE[t] || t);
+        }
+      } else {
+        const detectadosRaw = [...new Set(resultado.deteccoes.map(d => d.tipo))];
+        detectados = detectadosRaw;
+      }
+      
       const tp = detectados.filter(t =>  esperado.includes(t)).length;
       const fp = detectados.filter(t => !esperado.includes(t)).length;
       const fn = esperado.filter(t => !detectados.includes(t)).length;
@@ -1480,10 +1429,30 @@ async function handleLogs(request, env, cors) {
 async function handleLogsExport(request, env, cors) {
   const ctx = await getSessionOrApiKey(request, env);
   if (!ctx) return jsonResponse({ error: "Não autenticado" }, 401, cors);
-  const logs = await env.DB.prepare(
-    `SELECT tipos_detectados, total_pii, chars_entrada, chars_saida, tempo_ms, ner_ok, risk_score, risk_level, network_jitter_ms, criado_em
-     FROM scan_logs WHERE account_hash = ? ORDER BY criado_em DESC LIMIT 1000`
-  ).bind(await hashSimples(ctx.account_uuid)).all();
+  
+  const url = new URL(request.url);
+  const period = url.searchParams.get("period") || "all";
+  
+  let dateFilter = "";
+  if (period === "24h") {
+    dateFilter = "AND criado_em >= datetime('now', '-1 day')";
+  } else if (period === "7d") {
+    dateFilter = "AND criado_em >= datetime('now', '-7 days')";
+  } else if (period === "30d") {
+    dateFilter = "AND criado_em >= datetime('now', '-30 days')";
+  } else {
+    // Padrão: Mês atual
+    dateFilter = `AND criado_em LIKE '${mesAtual()}%'`;
+  }
+
+  const query = `
+    SELECT tipos_detectados, total_pii, chars_entrada, chars_saida, tempo_ms, ner_ok, risk_score, risk_level, network_jitter_ms, criado_em
+    FROM scan_logs 
+    WHERE account_hash = ? ${dateFilter} 
+    ORDER BY criado_em DESC 
+    LIMIT 10000`;
+
+  const logs = await env.DB.prepare(query).bind(await hashSimples(ctx.account_uuid)).all();
 
   const header = "data,total_pii,chars_entrada,chars_saida,tempo_ms,ner_ok,risk_score,risk_level,network_jitter_ms,tipos\n";
   const rows   = logs.results.map(r =>
@@ -1492,7 +1461,7 @@ async function handleLogsExport(request, env, cors) {
 
   return new Response(header + rows, {
     headers: { ...cors, "Content-Type": "text/csv",
-      "Content-Disposition": `attachment; filename="mascaraai-logs-${diaAtual()}.csv"` }
+      "Content-Disposition": `attachment; filename="mascaraai-logs-${period}-${diaAtual()}.csv"` }
   });
 }
 

@@ -45,7 +45,7 @@ export class DomainRouter {
   }
 
   static isHealthProfile(profile) {
-    const healthProfiles = ["uti_evolucao", "uti_enfermagem", "prontuario", "resumo_alta", "anamnese", "anamnese_pediatrica", "laudo", "uti_com_data_nasc", "strict_health"];
+    const healthProfiles = ["uti_evolucao", "uti_enfermagem", "prontuario", "resumo_alta", "anamnese", "anamnese_pediatrica", "laudo", "uti_com_data_nasc", "strict_health", "clinical"];
     return healthProfiles.includes(profile);
   }
 

@@ -1255,7 +1255,6 @@ const { restored_text } = await restore.json();</div>
                     <p style="color: var(--ink-muted); font-size: 0.85rem;" id="db-client-email">Carregando...</p>
                 </div>
                 <div style="display: flex; gap: 12px;">
-                    <button class="submit-btn secondary" id="btn-exportar-csv">📥 Exportar CSV</button>
                     <button class="submit-btn" id="btn-logout">Sair</button>
                 </div>
             </div>
@@ -1401,7 +1400,21 @@ const { restored_text } = await restore.json();</div>
                 </div>
             </div>
 
-            <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 16px;">Histórico Recente de Auditoria (Metadados)</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin: 0;">Histórico Recente de Auditoria (Amostra Live)</h3>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <select id="export-period" style="font-family: var(--font-body); font-size: 0.8rem; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-card); color: var(--ink-main); cursor: pointer;">
+                        <option value="24h">Últimas 24 horas</option>
+                        <option value="7d">Últimos 7 dias</option>
+                        <option value="30d">Últimos 30 dias</option>
+                        <option value="all" selected>Histórico Completo (Mês)</option>
+                    </select>
+                    <button class="submit-btn secondary" id="btn-exportar-csv-periodo" style="padding: 6px 12px; font-size: 0.8rem; margin: 0; width: auto;">📥 Baixar Planilha</button>
+                </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 12px; line-height: 1.4;">
+                Esta tabela exibe apenas as últimas 10 chamadas de API em tempo real para monitoramento do fluxo. Para análises completas, utilize a exportação filtrada por período.
+            </p>
             <table class="audit-table">
                 <thead>
                     <tr>
@@ -1427,7 +1440,7 @@ const { restored_text } = await restore.json();</div>
             <div class="footer-links">
                 <a href="https://099f94b0.mascaraai-site.pages.dev/#" onclick="openModal('securityModal'); return false;">🛡️ Segurança &amp; LGPD</a>
                 <a href="https://099f94b0.mascaraai-site.pages.dev/#" onclick="openModal('termsModal'); return false;">Termos &amp; Privacidade (LGPD)</a>
-                <a href="https://github.com/elic1" target="_blank">GitHub</a>
+                <a href="https://github.com/elicosilva/mascara-ai" target="_blank">GitHub</a>
             </div>
         </footer>
     </div>
@@ -2857,11 +2870,11 @@ ${window.playgroundTextResult}`;
               // Popula dados do dashboard
               document.getElementById('db-client-email').innerText = account.email;
               document.getElementById('stat-plano').innerText = account.plano_label;
-              document.getElementById('stat-uso-mes').innerText = `${account.uso_mes.toLocaleString()} / ${account.chars_mes.toLocaleString()}`;
-              document.getElementById('stat-uso-hoje').innerText = account.uso_hoje.toLocaleString();
               
+              document.getElementById('stat-uso-mes').innerText = `${account.uso_mes.toLocaleString()} / ${account.chars_mes.toLocaleString()}`;
               const pct = account.chars_mes > 0 ? (account.uso_mes / account.chars_mes) * 100 : 0;
               document.getElementById('stat-progress-bar').style.width = `${pct}%`;
+              document.getElementById('stat-uso-hoje').innerText = account.uso_hoje.toLocaleString();
 
               if (account.plano === "free") {
                 document.getElementById('upgrade-banner').style.display = 'flex';
@@ -3050,9 +3063,10 @@ ${window.playgroundTextResult}`;
             });
         }
 
-        // Exportar CSV
-        document.getElementById('btn-exportar-csv').addEventListener('click', () => {
-          window.open(API_BASE + `/api/logs/export?X-API-Key=${userApiKey}`, '_blank');
+        // Exportar CSV por Período
+        document.getElementById('btn-exportar-csv-periodo').addEventListener('click', () => {
+          const period = document.getElementById('export-period').value;
+          window.open(API_BASE + `/api/logs/export?X-API-Key=${userApiKey}&period=${period}`, '_blank');
         });
 
         // Logout

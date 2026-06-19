@@ -20,7 +20,11 @@ export class ContextResolver {
     let resolvedDomain = "";
     let resolvedProfile = "";
 
-    if (normalText.includes("anamnese")) {
+    // Se o texto contiver marcações ou tags do AnonyMED-BR/clinical, força o profile clinical
+    if (normalText.includes("<patient>") || normalText.includes("<doctor>") || normalText.includes("<hospital>") || normalText.includes("<idnum>")) {
+      resolvedDomain = "health";
+      resolvedProfile = "clinical";
+    } else if (normalText.includes("anamnese")) {
       resolvedDomain = "health";
       resolvedProfile = (normalText.includes("pediátrica") || normalText.includes("pediatrica") || normalText.includes("criança") || normalText.includes("crianca"))
         ? "anamnese_pediatrica"

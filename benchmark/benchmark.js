@@ -81,9 +81,17 @@ async function obterBaseCases() {
 function converterParaFormatoWorker(cases) {
   return cases.map((c, i) => {
     const esperado = [...new Set(
-      (c.expected_entities || []).map(e => e.tipo)
+      c.expected_entities 
+        ? c.expected_entities.map(e => e.tipo) 
+        : (c.labels || []).map(e => e.subcategory || e.category)
     )];
-    const categoria = `${c.domain || "auto"}/${c.profile || "generic"}`;
+    let domain = c.domain;
+    let profile = c.profile;
+    if (!domain && !profile && c.labels) {
+      domain = "health";
+      profile = "clinical";
+    }
+    const categoria = `${domain || "auto"}/${profile || "generic"}`;
     return {
       id: i + 1,
       entrada: c.text,

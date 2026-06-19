@@ -1,14 +1,18 @@
 {
-  "name": "MascaraAI - Fluxo de Anonimização B2B",
+  "name": "MascaraAI - Fluxo de Higienização e Restauração",
   "nodes": [
     {
-      "parameters": {},
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "prontuario-receber",
+        "options": {}
+      },
       "id": "e9a8f278-f7b5-4b08-8df0-7bc631853a47",
-      "name": "When clicking \"Execute Workflow\"",
-      "type": "n8n-nodes-base.manualTrigger",
+      "name": "Webhook (Entrada)",
+      "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        250,
+        200,
         240
       ]
     },
@@ -31,7 +35,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "{\n  \"texto\": \"Paciente João da Silva, 45 anos. CPF: 123.456.789-00, encaminhado pelo Dr. Carlos Mendes.\"\n}",
+        "jsonBody": "={\n  \"texto\": \"{{ $json.body.texto || $json.body.text }}\"\n}",
         "options": {}
       },
       "id": "63a8e9d9-2e1d-402e-bb97-28d84451000f",
@@ -39,22 +43,7 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        470,
-        240
-      ]
-    },
-    {
-      "parameters": {
-        "model": "gpt-4o-mini",
-        "prompt": "De forma concisa, faça um resumo clínico do seguinte prontuário. Mantenha os códigos em colchetes intactos (ex: [NOME:1]):\n\n{{ $json.safe_text }}",
-        "options": {}
-      },
-      "id": "1d89bf23-8cfb-4cc3-9bc5-e8d11b22e11a",
-      "name": "OpenAI / LLM Node",
-      "type": "n8n-nodes-base.openAi",
-      "typeVersion": 1,
-      "position": [
-        690,
+        420,
         240
       ]
     },
@@ -77,7 +66,7 @@
         },
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"safe_text\": \"{{ $json.text }}\",\n  \"restore_map\": {{ JSON.stringify($node[\"MascaraAI Scan (RAM)\"].json.restore_map) }}\n}",
+        "jsonBody": "={\n  \"safe_text\": \"{{ $json.body.texto_processado_pela_ia }}\",\n  \"restore_map\": {{ JSON.stringify($node[\"MascaraAI Scan (RAM)\"].json.restore_map) }}\n}",
         "options": {}
       },
       "id": "8b9a2e3a-7d4e-4fbc-b40b-48c909ee1102",
@@ -85,13 +74,26 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4,
       "position": [
-        910,
+        800,
         240
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Conecte sua IA/LLM aqui!\nInsira o nó da sua IA preferida (OpenAI, Gemini, Llama, etc.) entre o **Scan** e o **Restore**.\n\n- **Entrada da IA:** use o campo `{{ $json.safe_text }}` vindo do Scan.\n- **Saída da IA para o Restore:** envie a resposta da IA no corpo substituindo a chave `texto_processado_pela_ia` do nó de Restore."
+      },
+      "id": "c1a2b3c4-d5e6-4f7g-8h9i-0j1k2l3m4n5o",
+      "name": "Instruções de Integração",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        580,
+        180
       ]
     }
   ],
   "connections": {
-    "When clicking \"Execute Workflow\"": {
+    "Webhook (Entrada)": {
       "main": [
         [
           {
@@ -103,17 +105,6 @@
       ]
     },
     "MascaraAI Scan (RAM)": {
-      "main": [
-        [
-          {
-            "node": "OpenAI / LLM Node",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenAI / LLM Node": {
       "main": [
         [
           {
