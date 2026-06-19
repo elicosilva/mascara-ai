@@ -1,0 +1,6002 @@
+[
+  {
+    "id": 1,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 1. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 2. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 3. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 4. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 5. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 6. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 7. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 8. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 9. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 10. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 11. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 12. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 13. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 14. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 15. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 16. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 17. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 18. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 19. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 20. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 21. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 22. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 23. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 24. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 25. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 26. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 27. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 28. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 29. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 30. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 31. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 32. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 33. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 34. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 35. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 36. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 37. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 38. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 39. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 40. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 41. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 42. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 43. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 44. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 45. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 46. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 47. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 48. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 49. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 50. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 51. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 52. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 53. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 54. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 55. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 56. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 57. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 58. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 59. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 60. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 61. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 62. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 63. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 64. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 65. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 66. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 67. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 68. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 69. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 70. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 71. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 72. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 73. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 74. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 75. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 76. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 77. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 78. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 79. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 80. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 81. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 82. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 83. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 84. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 85. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 86. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 87. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 88. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 89. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 90. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 91. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 92. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 93. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 94. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 95. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 96. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 97. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 98. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 99. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 100. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 101. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 102. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 103. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 104. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 105. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 106. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 107. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 108. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 109. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 110. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 111. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 112. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 113. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 114. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 115. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 116. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 117. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 118. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 119. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 120. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 121. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 122. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 123. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 124. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 125. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 126. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 127. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 128. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 129. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 130. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 131. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 132. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 133. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 134. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 135. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 136. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 137. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 138. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 139. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 140. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 141. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 142. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 143. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 144. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 145. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 146. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 147. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 148. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 149. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 150. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 151. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 152. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 153. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 154. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 155. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 156,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 156. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 157,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 157. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 158. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 159. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 160. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 161. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 162. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 163. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 164,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 164. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 165,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 165. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 166,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 166. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 167. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 168. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 169,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 169. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 170. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 171,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 171. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 172,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 172. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 173,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 173. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 174,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 174. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 175,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 175. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 176. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 177. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 178. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 179,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 179. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 180. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 181,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 181. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 182,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 182. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 183,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 183. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 184,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 184. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 185. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 186,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 186. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 187. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 188,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 188. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 189,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 189. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 190. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 191. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 192,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 192. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 193,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 193. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 194,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 194. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 195,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 195. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 196,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 196. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 197,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 197. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 198,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 198. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 199,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 199. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 200. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 201,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 201. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 202,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 202. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 203,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 203. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 204,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 204. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 205,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 205. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 206,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 206. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 207,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 207. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 208,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 208. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 209,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 209. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 210,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 210. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 211,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 211. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 212,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 212. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 213,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 213. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 214,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 214. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 215,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 215. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 216,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 216. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 217,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 217. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 218,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 218. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 219,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 219. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 220,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 220. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 221,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 221. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 222,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 222. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 223,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 223. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 224,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 224. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 225,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 225. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 226,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 226. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 227,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 227. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 228,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 228. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 229,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 229. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 230,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 230. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 231,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 231. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 232,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 232. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 233,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 233. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 234,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 234. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 235,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 235. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 236,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 236. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 237,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 237. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 238,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 238. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 239,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 239. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 240,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 240. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 241,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 241. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 242,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 242. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 243,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 243. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 244,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 244. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 245,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 245. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 246,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 246. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 247,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 247. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 248,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 248. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 249,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 249. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 250,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 250. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 251,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 251. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 252,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 252. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 253,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 253. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 254,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 254. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 255,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 255. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 256,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 256. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 257,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 257. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 258,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 258. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 259,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 259. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 260,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 260. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 261,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 261. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 262,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 262. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 263,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 263. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 264,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 264. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 265,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 265. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 266,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 266. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 267,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 267. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 268,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 268. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 269,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 269. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 270,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 270. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 271,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 271. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 272,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 272. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 273,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 273. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 274,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 274. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 275,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 275. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 276,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 276. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 277,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 277. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 278,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 278. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 279,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 279. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 280,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 280. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 281,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 281. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 282,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 282. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 283,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 283. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 284,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 284. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 285,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 285. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 286,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 286. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 287,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 287. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 288,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 288. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 289,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 289. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 290,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 290. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 291,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 291. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 292,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 292. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 293,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Caso 293. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 294,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "Caso 294. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 295,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "Caso 295. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 296,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Caso 296. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 297,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Caso 297. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 298,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Caso 298. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 299,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Caso 299. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  },
+  {
+    "id": 300,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Caso 300. Paciente Pedro Gonçalves da Silva. CPF 529.982.247-25. Telefone (11) 99888-1111.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.982.247-25"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99888-1111"
+      }
+    ]
+  }
+]

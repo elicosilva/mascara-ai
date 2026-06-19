@@ -1,0 +1,132 @@
+{
+  "name": "MascaraAI - Fluxo de Anonimização B2B",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "e9a8f278-f7b5-4b08-8df0-7bc631853a47",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        250,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mascaraai.com/api/scan",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "sua_chave_api_mascaraai"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{\n  \"texto\": \"Paciente João da Silva, 45 anos. CPF: 123.456.789-00, encaminhado pelo Dr. Carlos Mendes.\"\n}",
+        "options": {}
+      },
+      "id": "63a8e9d9-2e1d-402e-bb97-28d84451000f",
+      "name": "MascaraAI Scan (RAM)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        470,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "prompt": "De forma concisa, faça um resumo clínico do seguinte prontuário. Mantenha os códigos em colchetes intactos (ex: [NOME:1]):\n\n{{ $json.safe_text }}",
+        "options": {}
+      },
+      "id": "1d89bf23-8cfb-4cc3-9bc5-e8d11b22e11a",
+      "name": "OpenAI / LLM Node",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [
+        690,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.mascaraai.com/api/restore",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "X-API-Key",
+              "value": "sua_chave_api_mascaraai"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"safe_text\": \"{{ $json.text }}\",\n  \"restore_map\": {{ JSON.stringify($node[\"MascaraAI Scan (RAM)\"].json.restore_map) }}\n}",
+        "options": {}
+      },
+      "id": "8b9a2e3a-7d4e-4fbc-b40b-48c909ee1102",
+      "name": "MascaraAI Restore (RAM)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        910,
+        240
+      ]
+    }
+  ],
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "MascaraAI Scan (RAM)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "MascaraAI Scan (RAM)": {
+      "main": [
+        [
+          {
+            "node": "OpenAI / LLM Node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI / LLM Node": {
+      "main": [
+        [
+          {
+            "node": "MascaraAI Restore (RAM)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

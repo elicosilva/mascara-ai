@@ -1,0 +1,22 @@
+# Chaves e Arquivos de Configuração Local
+.env
+.env.local
+.env.production
+.env.development
+wrangler.toml
+
+# Dependências
+node_modules/
+__pycache__/
+*.pyc
+
+# Banco de Dados Local / Cache
+.wrangler/
+.dev.vars
+*.db
+*.onnx
+
+# Arquivos temporários e logs locais
+*.log
+.system_generated/
+scratch/

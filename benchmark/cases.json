@@ -1,0 +1,4002 @@
+[
+  {
+    "id": 1,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Mariana Rezende. CPF 560.853.672-01. Telefone (11) 92904-6334.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "560.853.672-01"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92904-6334"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Luciana Cruz. CPF 823.696.510-40. Contato (11) 98278-1708.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "823.696.510-40"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98278-1708"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 737.923.971-61\nTelefone: (11) 93332-4734",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "737.923.971-61"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93332-4734"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Vinicius Melo. Meu CPF é 273.733.592-21. Meu telefone (11) 97809-3839.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "273.733.592-21"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97809-3839"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Marcelo Nunes Rezende. CPF 544.106.870-18. Tel (11) 91428-7130.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "544.106.870-18"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91428-7130"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Vinicius Melo\",\"cpf\":\"391.032.927-62\",\"telefone\":\"(11) 91814-7403\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "391.032.927-62"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91814-7403"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Pedro Gonçalves da Silva\" cpf=\"376.714.095-02\" phone=\"(11) 92822-4689\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "376.714.095-02"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92822-4689"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Carlos Alberto Souza; CPF 582.304.534-46; telefone (11) 92238-5393",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "582.304.534-46"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92238-5393"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Luciana Cruz. CPF 420.028.889-30. Telefone (11) 92835-6393.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "420.028.889-30"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92835-6393"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Marcelo Nunes Rezende. CPF 140.594.346-71. Contato (11) 96401-7741.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "140.594.346-71"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96401-7741"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Vinicius Melo\nCPF: 669.973.164-50\nTelefone: (11) 92552-4223",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "669.973.164-50"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92552-4223"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Juliana Carvalho. Meu CPF é 983.208.937-98. Meu telefone (11) 93896-5202.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "983.208.937-98"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93896-5202"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Mariana Rezende. CPF 409.212.319-11. Tel (11) 93748-2087.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "409.212.319-11"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93748-2087"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Marcelo Nunes Rezende\",\"cpf\":\"462.049.123-30\",\"telefone\":\"(11) 93249-9542\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "462.049.123-30"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93249-9542"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Fernanda Lima\" cpf=\"980.627.024-05\" phone=\"(11) 98292-8681\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "980.627.024-05"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98292-8681"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Ricardo Borges; CPF 114.168.081-59; telefone (11) 97393-2101",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "114.168.081-59"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97393-2101"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Pedro Gonçalves da Silva. CPF 985.439.274-04. Telefone (11) 94020-2988.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "985.439.274-04"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94020-2988"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Marcelo Nunes Rezende. CPF 935.557.955-11. Contato (11) 91566-1290.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "935.557.955-11"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91566-1290"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Natália Campos\nCPF: 544.848.401-89\nTelefone: (11) 95975-9080",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "544.848.401-89"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95975-9080"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Pedro Gonçalves da Silva. Meu CPF é 905.976.065-44. Meu telefone (11) 95688-9260.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "905.976.065-44"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95688-9260"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Tatiana Gomes. CPF 499.923.596-09. Tel (11) 94157-4734.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "499.923.596-09"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94157-4734"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Luciana Cruz\",\"cpf\":\"840.737.115-71\",\"telefone\":\"(11) 98231-2500\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "840.737.115-71"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98231-2500"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Ricardo Borges\" cpf=\"754.241.137-37\" phone=\"(11) 97551-7449\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "754.241.137-37"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97551-7449"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Ricardo Borges; CPF 874.807.959-63; telefone (11) 94456-7441",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "874.807.959-63"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94456-7441"
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Mariana Rezende. CPF 987.950.974-90. Telefone (11) 97725-8507.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "987.950.974-90"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97725-8507"
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Tatiana Gomes. CPF 735.983.367-13. Contato (11) 93491-9868.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "735.983.367-13"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93491-9868"
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Carlos Alberto Souza\nCPF: 472.786.831-81\nTelefone: (11) 96561-4060",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "472.786.831-81"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96561-4060"
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Tatiana Gomes. Meu CPF é 511.898.799-72. Meu telefone (11) 95360-2829.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "511.898.799-72"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95360-2829"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Ricardo Borges. CPF 192.226.473-35. Tel (11) 94231-8587.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "192.226.473-35"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94231-8587"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Cláudia Nunes\",\"cpf\":\"551.456.313-83\",\"telefone\":\"(11) 97148-5773\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "551.456.313-83"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97148-5773"
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Mariana Rezende\" cpf=\"605.643.818-02\" phone=\"(11) 91801-2808\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "605.643.818-02"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91801-2808"
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Luciana Cruz; CPF 711.220.897-16; telefone (11) 98716-6936",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "711.220.897-16"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98716-6936"
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Luciana Cruz. CPF 477.483.525-00. Telefone (11) 97367-7736.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "477.483.525-00"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97367-7736"
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Tatiana Gomes. CPF 602.099.185-78. Contato (11) 99812-1669.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "602.099.185-78"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99812-1669"
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 407.803.556-60\nTelefone: (11) 99860-8264",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "407.803.556-60"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99860-8264"
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Pedro Gonçalves da Silva. Meu CPF é 219.269.539-08. Meu telefone (11) 97062-3487.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "219.269.539-08"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97062-3487"
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Fernanda Lima. CPF 899.818.757-40. Tel (11) 93676-6980.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "899.818.757-40"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93676-6980"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Juliana Carvalho\",\"cpf\":\"619.491.889-65\",\"telefone\":\"(11) 93258-3505\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "619.491.889-65"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93258-3505"
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Cláudia Nunes\" cpf=\"728.825.716-90\" phone=\"(11) 94528-7407\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "728.825.716-90"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94528-7407"
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Mariana Rezende; CPF 816.164.869-70; telefone (11) 91259-6306",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "816.164.869-70"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91259-6306"
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Ricardo Borges. CPF 599.380.104-23. Telefone (11) 98501-4359.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "599.380.104-23"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98501-4359"
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Ricardo Borges. CPF 604.944.032-84. Contato (11) 91964-2163.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "604.944.032-84"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91964-2163"
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 389.459.601-55\nTelefone: (11) 96942-4904",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "389.459.601-55"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96942-4904"
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Carlos Alberto Souza. Meu CPF é 790.211.170-88. Meu telefone (11) 94333-3796.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "790.211.170-88"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94333-3796"
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Fernanda Lima. CPF 505.743.551-54. Tel (11) 95348-2505.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "505.743.551-54"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95348-2505"
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Tatiana Gomes\",\"cpf\":\"428.233.063-58\",\"telefone\":\"(11) 91736-5869\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "428.233.063-58"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91736-5869"
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Pedro Gonçalves da Silva\" cpf=\"609.200.348-10\" phone=\"(11) 98457-9687\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "609.200.348-10"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98457-9687"
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Cláudia Nunes; CPF 297.515.109-88; telefone (11) 95617-5938",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "297.515.109-88"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95617-5938"
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Natália Campos. CPF 149.603.848-75. Telefone (11) 94174-2803.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "149.603.848-75"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94174-2803"
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Fernanda Lima. CPF 235.921.579-57. Contato (11) 97759-9899.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "235.921.579-57"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97759-9899"
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 451.262.048-66\nTelefone: (11) 93294-6977",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "451.262.048-66"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93294-6977"
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Marcelo Nunes Rezende. Meu CPF é 680.716.765-27. Meu telefone (11) 96675-9013.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "680.716.765-27"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96675-9013"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Vinicius Melo. CPF 937.582.482-99. Tel (11) 97485-8968.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "937.582.482-99"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97485-8968"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Cláudia Nunes\",\"cpf\":\"562.092.464-51\",\"telefone\":\"(11) 94766-3427\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "562.092.464-51"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94766-3427"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Tatiana Gomes\" cpf=\"176.412.158-90\" phone=\"(11) 93330-5525\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "176.412.158-90"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93330-5525"
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Cláudia Nunes; CPF 920.598.752-26; telefone (11) 94850-9261",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "920.598.752-26"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94850-9261"
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Mariana Rezende. CPF 297.967.254-87. Telefone (11) 92188-4564.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "297.967.254-87"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92188-4564"
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Vinicius Melo. CPF 889.538.563-29. Contato (11) 96724-8694.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "889.538.563-29"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96724-8694"
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 806.490.653-95\nTelefone: (11) 92239-6045",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "806.490.653-95"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92239-6045"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Marcelo Nunes Rezende. Meu CPF é 280.720.714-67. Meu telefone (11) 93056-4542.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "280.720.714-67"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93056-4542"
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Tatiana Gomes. CPF 464.532.564-79. Tel (11) 91313-7924.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "464.532.564-79"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91313-7924"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Ricardo Borges\",\"cpf\":\"025.270.894-61\",\"telefone\":\"(11) 95381-5190\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "025.270.894-61"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95381-5190"
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Luciana Cruz\" cpf=\"466.200.789-58\" phone=\"(11) 94833-9409\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "466.200.789-58"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94833-9409"
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Pedro Gonçalves da Silva; CPF 029.804.635-07; telefone (11) 95677-6647",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "029.804.635-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95677-6647"
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Tatiana Gomes. CPF 375.467.693-88. Telefone (11) 92534-4376.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "375.467.693-88"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92534-4376"
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Ricardo Borges. CPF 661.151.711-13. Contato (11) 96462-4343.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "661.151.711-13"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96462-4343"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Ricardo Borges\nCPF: 080.481.498-85\nTelefone: (11) 96356-7256",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "080.481.498-85"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96356-7256"
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Marcelo Nunes Rezende. Meu CPF é 717.476.721-49. Meu telefone (11) 95533-9773.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "717.476.721-49"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95533-9773"
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Pedro Gonçalves da Silva. CPF 657.723.257-10. Tel (11) 91822-1410.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "657.723.257-10"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91822-1410"
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Cláudia Nunes\",\"cpf\":\"191.487.645-82\",\"telefone\":\"(11) 95572-4028\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "191.487.645-82"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95572-4028"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Mariana Rezende\" cpf=\"345.465.438-67\" phone=\"(11) 99123-1387\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "345.465.438-67"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99123-1387"
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Pedro Gonçalves da Silva; CPF 588.335.075-56; telefone (11) 98209-9887",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "588.335.075-56"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98209-9887"
+      }
+    ]
+  },
+  {
+    "id": 73,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Ricardo Borges. CPF 971.133.444-53. Telefone (11) 95757-6742.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "971.133.444-53"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95757-6742"
+      }
+    ]
+  },
+  {
+    "id": 74,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Tatiana Gomes. CPF 151.175.213-07. Contato (11) 95030-5080.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "151.175.213-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95030-5080"
+      }
+    ]
+  },
+  {
+    "id": 75,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Ricardo Borges\nCPF: 343.865.246-30\nTelefone: (11) 92206-7219",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "343.865.246-30"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92206-7219"
+      }
+    ]
+  },
+  {
+    "id": 76,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Tatiana Gomes. Meu CPF é 196.489.308-99. Meu telefone (11) 95061-7671.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "196.489.308-99"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95061-7671"
+      }
+    ]
+  },
+  {
+    "id": 77,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Ricardo Borges. CPF 972.392.854-05. Tel (11) 96808-9944.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "972.392.854-05"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96808-9944"
+      }
+    ]
+  },
+  {
+    "id": 78,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Fernanda Lima\",\"cpf\":\"689.920.728-13\",\"telefone\":\"(11) 99574-8944\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "689.920.728-13"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99574-8944"
+      }
+    ]
+  },
+  {
+    "id": 79,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Fernanda Lima\" cpf=\"098.967.917-91\" phone=\"(11) 99716-4195\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "098.967.917-91"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99716-4195"
+      }
+    ]
+  },
+  {
+    "id": 80,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Pedro Gonçalves da Silva; CPF 409.851.741-88; telefone (11) 98138-1675",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "409.851.741-88"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98138-1675"
+      }
+    ]
+  },
+  {
+    "id": 81,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Cláudia Nunes. CPF 056.459.025-80. Telefone (11) 98778-5402.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "056.459.025-80"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98778-5402"
+      }
+    ]
+  },
+  {
+    "id": 82,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Tatiana Gomes. CPF 472.371.687-46. Contato (11) 95943-9934.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "472.371.687-46"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95943-9934"
+      }
+    ]
+  },
+  {
+    "id": 83,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Marcelo Nunes Rezende\nCPF: 806.008.000-83\nTelefone: (11) 96992-8387",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "806.008.000-83"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96992-8387"
+      }
+    ]
+  },
+  {
+    "id": 84,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Carlos Alberto Souza. Meu CPF é 006.985.694-07. Meu telefone (11) 91114-2664.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "006.985.694-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91114-2664"
+      }
+    ]
+  },
+  {
+    "id": 85,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Pedro Gonçalves da Silva. CPF 521.767.851-85. Tel (11) 94740-4892.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "521.767.851-85"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94740-4892"
+      }
+    ]
+  },
+  {
+    "id": 86,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Marcelo Nunes Rezende\",\"cpf\":\"159.041.319-92\",\"telefone\":\"(11) 98578-9356\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "159.041.319-92"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98578-9356"
+      }
+    ]
+  },
+  {
+    "id": 87,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Mariana Rezende\" cpf=\"504.497.870-10\" phone=\"(11) 94311-6338\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "504.497.870-10"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94311-6338"
+      }
+    ]
+  },
+  {
+    "id": 88,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Cláudia Nunes; CPF 356.148.998-20; telefone (11) 98366-7196",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "356.148.998-20"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98366-7196"
+      }
+    ]
+  },
+  {
+    "id": 89,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Tatiana Gomes. CPF 271.004.548-67. Telefone (11) 91346-6091.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "271.004.548-67"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91346-6091"
+      }
+    ]
+  },
+  {
+    "id": 90,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Marcelo Nunes Rezende. CPF 869.290.284-52. Contato (11) 97151-2867.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "869.290.284-52"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97151-2867"
+      }
+    ]
+  },
+  {
+    "id": 91,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Natália Campos\nCPF: 996.097.779-02\nTelefone: (11) 93453-2465",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "996.097.779-02"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93453-2465"
+      }
+    ]
+  },
+  {
+    "id": 92,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Ricardo Borges. Meu CPF é 531.314.519-39. Meu telefone (11) 99404-6689.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "531.314.519-39"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99404-6689"
+      }
+    ]
+  },
+  {
+    "id": 93,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Fernanda Lima. CPF 752.218.679-07. Tel (11) 92202-4211.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "752.218.679-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92202-4211"
+      }
+    ]
+  },
+  {
+    "id": 94,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Marcelo Nunes Rezende\",\"cpf\":\"868.878.629-13\",\"telefone\":\"(11) 96541-2452\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "868.878.629-13"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96541-2452"
+      }
+    ]
+  },
+  {
+    "id": 95,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Ricardo Borges\" cpf=\"730.941.262-19\" phone=\"(11) 92300-6013\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "730.941.262-19"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92300-6013"
+      }
+    ]
+  },
+  {
+    "id": 96,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Tatiana Gomes; CPF 120.970.420-07; telefone (11) 91512-4714",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "120.970.420-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91512-4714"
+      }
+    ]
+  },
+  {
+    "id": 97,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Juliana Carvalho. CPF 817.287.637-89. Telefone (11) 92771-2261.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "817.287.637-89"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92771-2261"
+      }
+    ]
+  },
+  {
+    "id": 98,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Tatiana Gomes. CPF 102.206.736-24. Contato (11) 99966-7443.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "102.206.736-24"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99966-7443"
+      }
+    ]
+  },
+  {
+    "id": 99,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Natália Campos\nCPF: 597.714.639-69\nTelefone: (11) 92056-1791",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "597.714.639-69"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92056-1791"
+      }
+    ]
+  },
+  {
+    "id": 100,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Mariana Rezende. Meu CPF é 714.853.253-15. Meu telefone (11) 92352-7371.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "714.853.253-15"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92352-7371"
+      }
+    ]
+  },
+  {
+    "id": 101,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Juliana Carvalho. CPF 295.944.732-82. Tel (11) 98459-3600.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "295.944.732-82"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98459-3600"
+      }
+    ]
+  },
+  {
+    "id": 102,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Fernanda Lima\",\"cpf\":\"279.717.559-02\",\"telefone\":\"(11) 93249-1162\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "279.717.559-02"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93249-1162"
+      }
+    ]
+  },
+  {
+    "id": 103,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Marcelo Nunes Rezende\" cpf=\"480.818.473-75\" phone=\"(11) 96864-1500\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "480.818.473-75"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96864-1500"
+      }
+    ]
+  },
+  {
+    "id": 104,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Mariana Rezende; CPF 052.647.763-69; telefone (11) 92257-3807",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "052.647.763-69"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92257-3807"
+      }
+    ]
+  },
+  {
+    "id": 105,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Mariana Rezende. CPF 333.469.690-10. Telefone (11) 94907-3615.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "333.469.690-10"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94907-3615"
+      }
+    ]
+  },
+  {
+    "id": 106,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Carlos Alberto Souza. CPF 010.723.073-91. Contato (11) 93942-2110.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "010.723.073-91"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93942-2110"
+      }
+    ]
+  },
+  {
+    "id": 107,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Fernanda Lima\nCPF: 650.405.756-70\nTelefone: (11) 91319-6349",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "650.405.756-70"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91319-6349"
+      }
+    ]
+  },
+  {
+    "id": 108,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Juliana Carvalho. Meu CPF é 936.665.112-79. Meu telefone (11) 97827-4888.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "936.665.112-79"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97827-4888"
+      }
+    ]
+  },
+  {
+    "id": 109,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Fernanda Lima. CPF 902.646.019-80. Tel (11) 95902-4736.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "902.646.019-80"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95902-4736"
+      }
+    ]
+  },
+  {
+    "id": 110,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Cláudia Nunes\",\"cpf\":\"060.368.626-52\",\"telefone\":\"(11) 92473-6142\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "060.368.626-52"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92473-6142"
+      }
+    ]
+  },
+  {
+    "id": 111,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Mariana Rezende\" cpf=\"033.836.909-03\" phone=\"(11) 99449-9101\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "033.836.909-03"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99449-9101"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Juliana Carvalho; CPF 188.106.508-16; telefone (11) 95815-8006",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "188.106.508-16"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95815-8006"
+      }
+    ]
+  },
+  {
+    "id": 113,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Pedro Gonçalves da Silva. CPF 353.562.615-35. Telefone (11) 95238-8970.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "353.562.615-35"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95238-8970"
+      }
+    ]
+  },
+  {
+    "id": 114,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Luciana Cruz. CPF 760.957.208-00. Contato (11) 98747-1857.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "760.957.208-00"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98747-1857"
+      }
+    ]
+  },
+  {
+    "id": 115,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Pedro Gonçalves da Silva\nCPF: 100.268.725-01\nTelefone: (11) 96665-5798",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "100.268.725-01"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96665-5798"
+      }
+    ]
+  },
+  {
+    "id": 116,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Carlos Alberto Souza. Meu CPF é 745.607.601-44. Meu telefone (11) 98611-6786.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "745.607.601-44"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98611-6786"
+      }
+    ]
+  },
+  {
+    "id": 117,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Pedro Gonçalves da Silva. CPF 356.099.466-70. Tel (11) 96211-8780.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "356.099.466-70"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96211-8780"
+      }
+    ]
+  },
+  {
+    "id": 118,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Ricardo Borges\",\"cpf\":\"646.958.618-01\",\"telefone\":\"(11) 95237-7308\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "646.958.618-01"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95237-7308"
+      }
+    ]
+  },
+  {
+    "id": 119,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Vinicius Melo\" cpf=\"058.544.559-19\" phone=\"(11) 94102-1529\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "058.544.559-19"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94102-1529"
+      }
+    ]
+  },
+  {
+    "id": 120,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Tatiana Gomes; CPF 745.862.698-47; telefone (11) 99568-3405",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "745.862.698-47"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99568-3405"
+      }
+    ]
+  },
+  {
+    "id": 121,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Pedro Gonçalves da Silva. CPF 581.500.567-34. Telefone (11) 94585-6420.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "581.500.567-34"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94585-6420"
+      }
+    ]
+  },
+  {
+    "id": 122,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Mariana Rezende. CPF 348.473.921-59. Contato (11) 93457-6459.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "348.473.921-59"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93457-6459"
+      }
+    ]
+  },
+  {
+    "id": 123,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Ricardo Borges\nCPF: 842.571.097-93\nTelefone: (11) 94469-1545",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "842.571.097-93"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94469-1545"
+      }
+    ]
+  },
+  {
+    "id": 124,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Fernanda Lima. Meu CPF é 165.940.241-75. Meu telefone (11) 97672-8039.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "165.940.241-75"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97672-8039"
+      }
+    ]
+  },
+  {
+    "id": 125,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Juliana Carvalho. CPF 243.472.959-28. Tel (11) 95403-2856.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "243.472.959-28"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95403-2856"
+      }
+    ]
+  },
+  {
+    "id": 126,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Fernanda Lima\",\"cpf\":\"880.787.271-43\",\"telefone\":\"(11) 97049-4023\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "880.787.271-43"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97049-4023"
+      }
+    ]
+  },
+  {
+    "id": 127,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Marcelo Nunes Rezende\" cpf=\"857.864.170-18\" phone=\"(11) 99642-1198\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "857.864.170-18"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99642-1198"
+      }
+    ]
+  },
+  {
+    "id": 128,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Ricardo Borges; CPF 830.374.767-37; telefone (11) 92787-5189",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "830.374.767-37"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92787-5189"
+      }
+    ]
+  },
+  {
+    "id": 129,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Juliana Carvalho. CPF 149.460.381-08. Telefone (11) 93669-4303.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "149.460.381-08"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93669-4303"
+      }
+    ]
+  },
+  {
+    "id": 130,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Cláudia Nunes. CPF 360.917.449-84. Contato (11) 92202-9712.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "360.917.449-84"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92202-9712"
+      }
+    ]
+  },
+  {
+    "id": 131,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Cláudia Nunes\nCPF: 668.181.555-37\nTelefone: (11) 96824-7461",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "668.181.555-37"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96824-7461"
+      }
+    ]
+  },
+  {
+    "id": 132,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Mariana Rezende. Meu CPF é 681.843.769-95. Meu telefone (11) 98249-9962.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "681.843.769-95"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98249-9962"
+      }
+    ]
+  },
+  {
+    "id": 133,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Mariana Rezende. CPF 188.268.420-60. Tel (11) 98583-3036.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "188.268.420-60"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98583-3036"
+      }
+    ]
+  },
+  {
+    "id": 134,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Juliana Carvalho\",\"cpf\":\"118.920.759-11\",\"telefone\":\"(11) 94468-8286\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "118.920.759-11"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94468-8286"
+      }
+    ]
+  },
+  {
+    "id": 135,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Vinicius Melo\" cpf=\"915.806.197-54\" phone=\"(11) 94979-4755\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "915.806.197-54"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94979-4755"
+      }
+    ]
+  },
+  {
+    "id": 136,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Natália Campos; CPF 376.141.988-08; telefone (11) 97878-5252",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "376.141.988-08"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97878-5252"
+      }
+    ]
+  },
+  {
+    "id": 137,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Marcelo Nunes Rezende. CPF 640.611.243-15. Telefone (11) 96951-7884.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "640.611.243-15"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96951-7884"
+      }
+    ]
+  },
+  {
+    "id": 138,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Ricardo Borges. CPF 977.535.180-46. Contato (11) 98607-4788.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "977.535.180-46"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98607-4788"
+      }
+    ]
+  },
+  {
+    "id": 139,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 494.290.536-20\nTelefone: (11) 97453-6163",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "494.290.536-20"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97453-6163"
+      }
+    ]
+  },
+  {
+    "id": 140,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Carlos Alberto Souza. Meu CPF é 401.003.929-97. Meu telefone (11) 96719-3332.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "401.003.929-97"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96719-3332"
+      }
+    ]
+  },
+  {
+    "id": 141,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Cláudia Nunes. CPF 554.485.038-02. Tel (11) 97300-9257.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "554.485.038-02"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97300-9257"
+      }
+    ]
+  },
+  {
+    "id": 142,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Juliana Carvalho\",\"cpf\":\"691.535.957-50\",\"telefone\":\"(11) 92080-7774\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "691.535.957-50"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92080-7774"
+      }
+    ]
+  },
+  {
+    "id": 143,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Luciana Cruz\" cpf=\"802.779.165-00\" phone=\"(11) 91625-8706\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "802.779.165-00"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91625-8706"
+      }
+    ]
+  },
+  {
+    "id": 144,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Tatiana Gomes; CPF 178.135.499-53; telefone (11) 94203-3470",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "178.135.499-53"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94203-3470"
+      }
+    ]
+  },
+  {
+    "id": 145,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Marcelo Nunes Rezende. CPF 684.187.462-54. Telefone (11) 99899-6408.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "684.187.462-54"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99899-6408"
+      }
+    ]
+  },
+  {
+    "id": 146,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Fernanda Lima. CPF 701.419.058-08. Contato (11) 94835-9148.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "701.419.058-08"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94835-9148"
+      }
+    ]
+  },
+  {
+    "id": 147,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Juliana Carvalho\nCPF: 840.586.831-39\nTelefone: (11) 91066-1689",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "840.586.831-39"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91066-1689"
+      }
+    ]
+  },
+  {
+    "id": 148,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Cláudia Nunes. Meu CPF é 601.155.552-77. Meu telefone (11) 97240-6080.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "601.155.552-77"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97240-6080"
+      }
+    ]
+  },
+  {
+    "id": 149,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Luciana Cruz. CPF 058.489.358-23. Tel (11) 99063-9744.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "058.489.358-23"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99063-9744"
+      }
+    ]
+  },
+  {
+    "id": 150,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Juliana Carvalho\",\"cpf\":\"185.368.630-13\",\"telefone\":\"(11) 92484-7546\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "185.368.630-13"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92484-7546"
+      }
+    ]
+  },
+  {
+    "id": 151,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Natália Campos\" cpf=\"298.667.907-20\" phone=\"(11) 99473-7163\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "298.667.907-20"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99473-7163"
+      }
+    ]
+  },
+  {
+    "id": 152,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Tatiana Gomes; CPF 887.630.036-86; telefone (11) 99016-4617",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "887.630.036-86"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99016-4617"
+      }
+    ]
+  },
+  {
+    "id": 153,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Natália Campos. CPF 351.764.135-90. Telefone (11) 97384-7354.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "351.764.135-90"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97384-7354"
+      }
+    ]
+  },
+  {
+    "id": 154,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Natália Campos. CPF 967.304.830-40. Contato (11) 96293-5603.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "967.304.830-40"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96293-5603"
+      }
+    ]
+  },
+  {
+    "id": 155,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Carlos Alberto Souza\nCPF: 537.133.996-54\nTelefone: (11) 93794-9151",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "537.133.996-54"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93794-9151"
+      }
+    ]
+  },
+  {
+    "id": 156,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Marcelo Nunes Rezende. Meu CPF é 048.485.532-88. Meu telefone (11) 98777-3836.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "048.485.532-88"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98777-3836"
+      }
+    ]
+  },
+  {
+    "id": 157,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Marcelo Nunes Rezende. CPF 275.605.600-67. Tel (11) 95726-7037.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "275.605.600-67"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95726-7037"
+      }
+    ]
+  },
+  {
+    "id": 158,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Carlos Alberto Souza\",\"cpf\":\"688.425.419-07\",\"telefone\":\"(11) 92722-6353\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "688.425.419-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92722-6353"
+      }
+    ]
+  },
+  {
+    "id": 159,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Fernanda Lima\" cpf=\"961.984.219-70\" phone=\"(11) 95346-8701\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "961.984.219-70"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95346-8701"
+      }
+    ]
+  },
+  {
+    "id": 160,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Vinicius Melo; CPF 315.285.263-09; telefone (11) 98940-2558",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "315.285.263-09"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98940-2558"
+      }
+    ]
+  },
+  {
+    "id": 161,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Fernanda Lima. CPF 855.365.893-77. Telefone (11) 91855-8603.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "855.365.893-77"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91855-8603"
+      }
+    ]
+  },
+  {
+    "id": 162,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Marcelo Nunes Rezende. CPF 926.984.711-07. Contato (11) 94803-9780.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "926.984.711-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94803-9780"
+      }
+    ]
+  },
+  {
+    "id": 163,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Mariana Rezende\nCPF: 212.654.660-84\nTelefone: (11) 92046-8969",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "212.654.660-84"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 92046-8969"
+      }
+    ]
+  },
+  {
+    "id": 164,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Marcelo Nunes Rezende. Meu CPF é 931.274.853-01. Meu telefone (11) 91709-9276.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "931.274.853-01"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91709-9276"
+      }
+    ]
+  },
+  {
+    "id": 165,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Carlos Alberto Souza. CPF 514.813.194-26. Tel (11) 97886-2470.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "514.813.194-26"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97886-2470"
+      }
+    ]
+  },
+  {
+    "id": 166,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Carlos Alberto Souza\",\"cpf\":\"786.136.466-62\",\"telefone\":\"(11) 93226-5634\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "786.136.466-62"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93226-5634"
+      }
+    ]
+  },
+  {
+    "id": 167,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Carlos Alberto Souza\" cpf=\"780.561.601-91\" phone=\"(11) 95398-9735\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Carlos Alberto Souza"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "780.561.601-91"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95398-9735"
+      }
+    ]
+  },
+  {
+    "id": 168,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Marcelo Nunes Rezende; CPF 918.599.397-24; telefone (11) 91055-1353",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "918.599.397-24"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91055-1353"
+      }
+    ]
+  },
+  {
+    "id": 169,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Natália Campos. CPF 311.575.286-51. Telefone (11) 97636-3347.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "311.575.286-51"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97636-3347"
+      }
+    ]
+  },
+  {
+    "id": 170,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Natália Campos. CPF 090.720.590-93. Contato (11) 91960-9746.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "090.720.590-93"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91960-9746"
+      }
+    ]
+  },
+  {
+    "id": 171,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Vinicius Melo\nCPF: 999.707.037-22\nTelefone: (11) 98222-1632",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "999.707.037-22"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98222-1632"
+      }
+    ]
+  },
+  {
+    "id": 172,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Mariana Rezende. Meu CPF é 700.177.166-08. Meu telefone (11) 98028-7570.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "700.177.166-08"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98028-7570"
+      }
+    ]
+  },
+  {
+    "id": 173,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Luciana Cruz. CPF 274.334.302-88. Tel (11) 96483-7310.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "274.334.302-88"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96483-7310"
+      }
+    ]
+  },
+  {
+    "id": 174,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Mariana Rezende\",\"cpf\":\"963.561.277-08\",\"telefone\":\"(11) 97553-3876\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "963.561.277-08"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97553-3876"
+      }
+    ]
+  },
+  {
+    "id": 175,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Luciana Cruz\" cpf=\"070.814.750-00\" phone=\"(11) 93811-5862\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Luciana Cruz"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "070.814.750-00"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93811-5862"
+      }
+    ]
+  },
+  {
+    "id": 176,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Pedro Gonçalves da Silva; CPF 404.675.457-58; telefone (11) 91570-3242",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "404.675.457-58"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91570-3242"
+      }
+    ]
+  },
+  {
+    "id": 177,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Cláudia Nunes. CPF 486.459.383-32. Telefone (11) 98607-5438.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "486.459.383-32"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98607-5438"
+      }
+    ]
+  },
+  {
+    "id": 178,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Natália Campos. CPF 396.410.894-47. Contato (11) 99435-2019.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Natália Campos"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "396.410.894-47"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99435-2019"
+      }
+    ]
+  },
+  {
+    "id": 179,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Vinicius Melo\nCPF: 529.440.995-07\nTelefone: (11) 98512-7143",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "529.440.995-07"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98512-7143"
+      }
+    ]
+  },
+  {
+    "id": 180,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Ricardo Borges. Meu CPF é 919.765.408-60. Meu telefone (11) 99005-3298.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "919.765.408-60"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99005-3298"
+      }
+    ]
+  },
+  {
+    "id": 181,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Ricardo Borges. CPF 447.996.732-03. Tel (11) 91819-1317.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "447.996.732-03"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91819-1317"
+      }
+    ]
+  },
+  {
+    "id": 182,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Juliana Carvalho\",\"cpf\":\"885.021.879-61\",\"telefone\":\"(11) 95911-5887\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "885.021.879-61"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95911-5887"
+      }
+    ]
+  },
+  {
+    "id": 183,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Fernanda Lima\" cpf=\"373.468.394-71\" phone=\"(11) 95232-2066\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Fernanda Lima"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "373.468.394-71"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95232-2066"
+      }
+    ]
+  },
+  {
+    "id": 184,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Cláudia Nunes; CPF 110.319.938-27; telefone (11) 98800-1598",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "110.319.938-27"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98800-1598"
+      }
+    ]
+  },
+  {
+    "id": 185,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Tatiana Gomes. CPF 129.702.986-00. Telefone (11) 99068-5686.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "129.702.986-00"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99068-5686"
+      }
+    ]
+  },
+  {
+    "id": 186,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Tatiana Gomes. CPF 258.907.397-60. Contato (11) 91227-2757.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "258.907.397-60"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91227-2757"
+      }
+    ]
+  },
+  {
+    "id": 187,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Vinicius Melo\nCPF: 231.105.133-40\nTelefone: (11) 99925-3504",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "231.105.133-40"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 99925-3504"
+      }
+    ]
+  },
+  {
+    "id": 188,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Juliana Carvalho. Meu CPF é 602.645.854-96. Meu telefone (11) 94805-7357.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "602.645.854-96"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94805-7357"
+      }
+    ]
+  },
+  {
+    "id": 189,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Cláudia Nunes. CPF 456.296.919-96. Tel (11) 93439-4620.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "456.296.919-96"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93439-4620"
+      }
+    ]
+  },
+  {
+    "id": 190,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Ricardo Borges\",\"cpf\":\"868.089.884-80\",\"telefone\":\"(11) 97344-2342\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Ricardo Borges"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "868.089.884-80"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97344-2342"
+      }
+    ]
+  },
+  {
+    "id": 191,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Juliana Carvalho\" cpf=\"701.862.979-98\" phone=\"(11) 93052-5845\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Juliana Carvalho"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "701.862.979-98"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 93052-5845"
+      }
+    ]
+  },
+  {
+    "id": 192,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Vinicius Melo; CPF 545.435.001-05; telefone (11) 97656-4830",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Vinicius Melo"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "545.435.001-05"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97656-4830"
+      }
+    ]
+  },
+  {
+    "id": 193,
+    "domain": "health",
+    "profile": "uti_evolucao",
+    "text": "Subjetivo\nPaciente Mariana Rezende. CPF 428.026.993-93. Telefone (11) 96401-3679.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Mariana Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "428.026.993-93"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96401-3679"
+      }
+    ]
+  },
+  {
+    "id": 194,
+    "domain": "health",
+    "profile": "uti_enfermagem",
+    "text": "Evolução enfermagem. Paciente desperto. Nome Marcelo Nunes Rezende. CPF 609.133.772-60. Contato (11) 91164-1260.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Marcelo Nunes Rezende"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "609.133.772-60"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 91164-1260"
+      }
+    ]
+  },
+  {
+    "id": 195,
+    "domain": "health",
+    "profile": "prontuario",
+    "text": "Prontuário ambulatorial\nPaciente: Tatiana Gomes\nCPF: 971.665.965-20\nTelefone: (11) 96381-8449",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "971.665.965-20"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 96381-8449"
+      }
+    ]
+  },
+  {
+    "id": 196,
+    "domain": "chat",
+    "profile": "whatsapp_paciente",
+    "text": "Olá, sou Cláudia Nunes. Meu CPF é 894.530.730-32. Meu telefone (11) 97429-5524.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "894.530.730-32"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 97429-5524"
+      }
+    ]
+  },
+  {
+    "id": 197,
+    "domain": "chat",
+    "profile": "whatsapp_receita",
+    "text": "Renovar receita. Paciente Pedro Gonçalves da Silva. CPF 814.262.953-40. Tel (11) 94716-6753.",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "814.262.953-40"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94716-6753"
+      }
+    ]
+  },
+  {
+    "id": 198,
+    "domain": "rag",
+    "profile": "rag_ingest",
+    "text": "{\"paciente\":\"Cláudia Nunes\",\"cpf\":\"421.841.529-35\",\"telefone\":\"(11) 95401-2271\"}",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Cláudia Nunes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "421.841.529-35"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 95401-2271"
+      }
+    ]
+  },
+  {
+    "id": 199,
+    "domain": "logs",
+    "profile": "application_log",
+    "text": "INFO user=\"Tatiana Gomes\" cpf=\"239.858.500-03\" phone=\"(11) 98015-1310\"",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Tatiana Gomes"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "239.858.500-03"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 98015-1310"
+      }
+    ]
+  },
+  {
+    "id": 200,
+    "domain": "generic",
+    "profile": "generic",
+    "text": "Cadastro paciente Pedro Gonçalves da Silva; CPF 072.890.712-71; telefone (11) 94403-1265",
+    "expected_entities": [
+      {
+        "tipo": "NOME_PESSOA",
+        "valor": "Pedro Gonçalves da Silva"
+      },
+      {
+        "tipo": "CPF",
+        "valor": "072.890.712-71"
+      },
+      {
+        "tipo": "TELEFONE",
+        "valor": "(11) 94403-1265"
+      }
+    ]
+  }
+]

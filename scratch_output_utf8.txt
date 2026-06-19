@@ -1,0 +1,233 @@
+﻿­ƒôé Carregando todos os casos (--all)...
+
+  ÔåÆ Carregado: cases.json (200 casos)
+  ÔåÆ Carregado: cases_novos_300.json (300 casos)
+  ÔåÆ Carregado: cases_novos_300b.json (300 casos)
+  ÔåÆ Carregado: casesclaude599.json (599 casos)
+  ÔåÆ Carregado: casesgpt300.json (300 casos)
+­ƒÜÇ Executando Benchmark Local (1699 casos, sem NER)
+
+  Processados 100/1699...
+  Processados 200/1699...
+  Processados 300/1699...
+  Processados 400/1699...
+  Processados 500/1699...
+  Processados 600/1699...
+  Processados 700/1699...
+  Processados 800/1699...
+  Processados 900/1699...
+  Processados 1000/1699...
+  Processados 1100/1699...
+  Processados 1200/1699...
+  Processados 1300/1699...
+  Processados 1400/1699...
+  Processados 1500/1699...
+  Processados 1600/1699...
+
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ RESULTS OVERALL ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+Tempo Total     : 562 ms (0.6s)
+Total de Casos  : 1699
+Acertos Exatos  : 1511 (88.93%)
+Falhas          : 188
+Precis├úo Geral  : 98.70%
+Recall Geral    : 98.75%
+F1 Score Geral  : 0.9873 (98.73%)
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+
+­ƒôè ERROS POR DOM├ìNIO:
+  HEALTH          188 erros
+
+­ƒôï ERROS POR SUBCATEGORIA:
+  health/strict_health                60 erros
+  health/anamnese                     56 erros
+  health/uti_enfermagem               29 erros
+  health/uti_com_data_nasc            24 erros
+  health/resumo_alta                  14 erros
+  health/laudo                        5 erros
+
+ÔÜá´©Å  FALSOS POSITIVOS POR TIPO:
+  CEP                      111
+  IDADE                    9
+
+ÔØî FALSOS NEGATIVOS POR TIPO:
+  NOME_PESSOA              36
+  NOME_MAE                 33
+  CPF                      28
+  DATA_NASCIMENTO          18
+
+­ƒöì DETALHES DAS FALHAS (top 20):
+ÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉÔòÉ
+
+  #4 [health/resumo_alta]
+  Texto: "Termo de Alta Hospitalar ÔÇö Hospital S├úo Luiz
+
+Identifica├º├úo: Fl├ívio Eduardo Borges, nascida em 03/05..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, ENDERECO_RESIDENCIAL, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM, COREN, TELEFONE]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, ENDERECO_RESIDENCIAL, NOME_PESSOA, TELEFONE, CPF, COREN, CRM, DATA_NASCIMENTO, CEP, PRONTUARIO]
+  FP: CEP
+
+  #6 [health/resumo_alta]
+  Texto: "RESUMO DE ALTA HOSPITALAR
+Hospital: Hospital das Cl├¡nicas
+Paciente: Paulo S├®rgio Lima Neto
+Data de N..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, PRONTUARIO, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM, NOME_MAE]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_PESSOA, ENDERECO_RESIDENCIAL, NOME_MAE, TELEFONE, CPF, CRM, DATA_NASCIMENTO, CEP, PRONTUARIO]
+  FP: CEP
+
+  #24 [health/resumo_alta]
+  Texto: "Termo de Alta Hospitalar ÔÇö Santa Casa
+
+Identifica├º├úo: Priscila Ferreira Carvalho, nascida em 18/04/1..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, ENDERECO_RESIDENCIAL, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM, COREN, TELEFONE]
+  Detectado: [ENDERECO_RESIDENCIAL, PROFISSIONAL_SAUDE, NOME_MAE, TELEFONE, CPF, COREN, CRM, DATA_NASCIMENTO, PRONTUARIO]
+  FN: NOME_PESSOA
+
+  #25 [health/resumo_alta]
+  Texto: "RESUMO DE ALTA HOSPITALAR
+Hospital: Hospital das Cl├¡nicas
+Paciente: Bruno Henrique Ramos
+Data de Nas..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, PRONTUARIO, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM, NOME_MAE]
+  Detectado: [PROFISSIONAL_SAUDE, ENDERECO_RESIDENCIAL, NOME_MAE, NOME_PESSOA, TELEFONE, CPF, CRM, DATA_NASCIMENTO, CEP, PRONTUARIO]
+  FP: CEP
+
+  #32 [health/resumo_alta]
+  Texto: "Carta de Alta para M├®dico Assistente
+
+Prezado(a) colega,
+
+Encaminhamos o(a) paciente Camila Rocha Na..."
+  Esperado : [NOME_PESSOA, IDADE, CPF, PRONTUARIO, NOME_MAE, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, NOME_PESSOA, ENDERECO_RESIDENCIAL, TELEFONE, CPF, CRM, CEP, IDADE, PRONTUARIO]
+  FP: CEP
+
+  #37 [health/resumo_alta]
+  Texto: "Termo de Alta Hospitalar ÔÇö HU-USP
+
+Identifica├º├úo: D├®bora Cristine Almeida, nascida em 11/02/1968, CP..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, ENDERECO_RESIDENCIAL, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM, COREN, TELEFONE]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_PESSOA, NOME_MAE, ENDERECO_RESIDENCIAL, TELEFONE, CPF, COREN, DATA_NASCIMENTO, CRM, CEP, PRONTUARIO]
+  FP: CEP
+
+  #46 [health/resumo_alta]
+  Texto: "Carta de Alta para M├®dico Assistente
+
+Prezado(a) colega,
+
+Encaminhamos o(a) paciente Simone Aparecid..."
+  Esperado : [NOME_PESSOA, IDADE, CPF, PRONTUARIO, NOME_MAE, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM]
+  Detectado: [NOME_PESSOA, PROFISSIONAL_SAUDE, NOME_MAE, ENDERECO_RESIDENCIAL, CPF, TELEFONE, CRM, CEP, IDADE, PRONTUARIO]
+  FP: CEP
+
+  #47 [health/resumo_alta]
+  Texto: "ALTA NEONATAL ÔÇö UTIN
+RN de Eliane Beatriz Corr├¬a, nascido em 04/08/1946
+M├úe: Dalva Aparecida Ribeiro..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, NOME_MAE, CPF, ENDERECO_RESIDENCIAL, TELEFONE, PRONTUARIO, PROFISSIONAL_SAUDE, CRM, COREN]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, ENDERECO_RESIDENCIAL, CPF, COREN, TELEFONE, DATA_NASCIMENTO, CRM, CEP, PRONTUARIO]
+  FP: CEP
+  FN: NOME_PESSOA
+
+  #57 [health/resumo_alta]
+  Texto: "Carta de Alta para M├®dico Assistente
+
+Prezado(a) colega,
+
+Encaminhamos o(a) paciente Fernanda Castro..."
+  Esperado : [NOME_PESSOA, IDADE, CPF, PRONTUARIO, NOME_MAE, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM]
+  Detectado: [PROFISSIONAL_SAUDE, ENDERECO_RESIDENCIAL, NOME_MAE, NOME_PESSOA, TELEFONE, CPF, CRM, CEP, IDADE, PRONTUARIO]
+  FP: CEP
+
+  #68 [health/resumo_alta]
+  Texto: "Termo de Alta Hospitalar ÔÇö Santa Casa
+
+Identifica├º├úo: Daniel Fonseca Monteiro, nascida em 19/09/1945..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, ENDERECO_RESIDENCIAL, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM, COREN, TELEFONE]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, NOME_PESSOA, ENDERECO_RESIDENCIAL, TELEFONE, CPF, COREN, DATA_NASCIMENTO, CRM, CEP, PRONTUARIO]
+  FP: CEP
+
+  #89 [health/resumo_alta]
+  Texto: "ALTA NEONATAL ÔÇö UTIN
+RN de Leonardo Carvalho Teixeira, nascido em 30/06/1993
+M├úe: Irene Carvalho Lem..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, NOME_MAE, CPF, ENDERECO_RESIDENCIAL, TELEFONE, PRONTUARIO, PROFISSIONAL_SAUDE, CRM, COREN]
+  Detectado: [ENDERECO_RESIDENCIAL, PROFISSIONAL_SAUDE, NOME_MAE, CPF, COREN, TELEFONE, DATA_NASCIMENTO, CRM, PRONTUARIO]
+  FN: NOME_PESSOA
+
+  #92 [health/resumo_alta]
+  Texto: "** SUM├üRIO DE ALTA ÔÇö SISTEMA HIS **
+Paciente: Sabrina Moura Rodrigues | Idade: 44 anos | DN: 29/01/1..."
+  Esperado : [NOME_PESSOA, IDADE, DATA_NASCIMENTO, CPF, PRONTUARIO, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM, COREN, NOME_MAE]
+  Detectado: [ENDERECO_RESIDENCIAL, PROFISSIONAL_SAUDE, NOME_MAE, TELEFONE, CPF, COREN, DATA_NASCIMENTO, CRM, IDADE, PRONTUARIO]
+  FN: NOME_PESSOA
+
+  #93 [health/resumo_alta]
+  Texto: "RESUMO DE ALTA HOSPITALAR
+Hospital: Hospital das Cl├¡nicas
+Paciente: M├┤nica Cristiane Azevedo
+Data de..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, CPF, PRONTUARIO, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM, NOME_MAE]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_PESSOA, NOME_MAE, ENDERECO_RESIDENCIAL, TELEFONE, CPF, DATA_NASCIMENTO, CRM, CEP, PRONTUARIO]
+  FP: CEP
+
+  #97 [health/resumo_alta]
+  Texto: "** SUM├üRIO DE ALTA ÔÇö SISTEMA HIS **
+Paciente: Eliane Beatriz Corr├¬a | Idade: 56 anos | DN: 19/09/194..."
+  Esperado : [NOME_PESSOA, IDADE, DATA_NASCIMENTO, CPF, PRONTUARIO, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM, COREN, NOME_MAE]
+  Detectado: [PROFISSIONAL_SAUDE, ENDERECO_RESIDENCIAL, NOME_MAE, NOME_PESSOA, TELEFONE, CPF, COREN, CRM, DATA_NASCIMENTO, CEP, IDADE, PRONTUARIO]
+  FP: CEP
+
+  #104 [health/uti_com_data_nasc]
+  Texto: "PRESCRI├ç├âO M├ëDICA UTI ÔÇö 01/06/2025
+Paciente: Tatiana Cristina Sousa
+D.N.: 18/04/1969 (38 anos)
+CPF: ..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, IDADE, CPF, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_PESSOA, NOME_MAE, CPF, CRM, IDADE, PRONTUARIO]
+  FN: DATA_NASCIMENTO
+
+  #105 [health/uti_com_data_nasc]
+  Texto: "PRESCRI├ç├âO M├ëDICA UTI ÔÇö 22/05/2025
+Paciente: Juliana Mota Cavalcanti
+D.N.: 07/12/1956 (78 anos)
+CPF:..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, IDADE, CPF, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, CPF, CRM, IDADE, PRONTUARIO]
+  FN: NOME_PESSOA, DATA_NASCIMENTO
+
+  #108 [health/uti_com_data_nasc]
+  Texto: "Evolu├º├úo Multidisciplinar ÔÇö sexta-feira
+
+Identifica├º├úo: J├®ssica Aparecida Lima, 84 anos, nascido(a) ..."
+  Esperado : [NOME_PESSOA, IDADE, DATA_NASCIMENTO, CPF, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM, COREN]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, CPF, COREN, DATA_NASCIMENTO, CRM, IDADE, PRONTUARIO]
+  FN: NOME_PESSOA
+
+  #115 [health/uti_com_data_nasc]
+  Texto: "PRESCRI├ç├âO M├ëDICA UTI ÔÇö 01/06/2025
+Paciente: Beatriz Tavares Cunha
+D.N.: 01/12/1987 (45 anos)
+CPF: 0..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, IDADE, CPF, PRONTUARIO, NOME_MAE, PROFISSIONAL_SAUDE, CRM]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, NOME_PESSOA, CPF, CRM, IDADE, PRONTUARIO]
+  FN: DATA_NASCIMENTO
+
+  #116 [health/uti_com_data_nasc]
+  Texto: "Ficha de Admiss├úo UTI ÔÇö Score Progn├│stico
+Nome: Camila Rocha Nascimento
+Data Nasc.: 04/08/1946 ÔÇö Ida..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, IDADE, CPF, PRONTUARIO, NOME_MAE, ENDERECO_RESIDENCIAL, TELEFONE, PROFISSIONAL_SAUDE, CRM, COREN]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_PESSOA, ENDERECO_RESIDENCIAL, NOME_MAE, TELEFONE, CPF, COREN, DATA_NASCIMENTO, CRM, CEP, IDADE, PRONTUARIO]
+  FP: CEP
+
+  #118 [health/uti_com_data_nasc]
+  Texto: "TERMO DE TRANSFER├èNCIA INTER-HOSPITALAR
+
+Paciente Welton Augusto Pinheiro, nascido em 11/02/1968, 34..."
+  Esperado : [NOME_PESSOA, DATA_NASCIMENTO, IDADE, CPF, NOME_MAE, PRONTUARIO, PROFISSIONAL_SAUDE, CRM, COREN, TELEFONE]
+  Detectado: [PROFISSIONAL_SAUDE, NOME_MAE, COREN, TELEFONE, CPF, DATA_NASCIMENTO, CRM, IDADE, PRONTUARIO]
+  FN: NOME_PESSOA
+
+­ƒöÆ F1 obtido: 0.9873 | Meta: 1.0000
+­ƒƒí Benchmark BOM, mas pode melhorar.
