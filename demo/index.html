@@ -2,9 +2,48 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Técnico Principal -->
     <title>MascaraAI — Higienizador de Textos Clínicos para IA na Saúde</title>
+    <meta name="description" content="Higienizador e mascarador de dados clínicos (PII/PHI) ultra-rápido na borda antes de enviar para modelos de IA. Garanta conformidade com a LGPD e HIPAA na saúde." />
+    <meta name="keywords" content="mascaramento de dados, LGPD saúde, anonimização de prontuário, PII saúde, PHI mascaramento, IA na medicina, segurança de dados clínicos" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://mascaraai.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="MascaraAI — Higienizador de Textos Clínicos para IA na Saúde" />
+    <meta property="og:description" content="Higienizador e mascarador de dados clínicos (PII/PHI) ultra-rápido na borda antes de enviar para modelos de IA. Proteção de dados de saúde na era dos LLMs." />
+    <meta property="og:url" content="https://mascaraai.com" />
+    <meta property="og:site_name" content="MascaraAI" />
+    <meta property="og:image" content="https://mascaraai.com/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MascaraAI — Higienizador de Textos Clínicos para IA na Saúde" />
+    <meta name="twitter:description" content="Higienizador e mascarador de dados clínicos (PII/PHI) ultra-rápido na borda antes de enviar para modelos de IA." />
+    <meta name="twitter:image" content="https://mascaraai.com/og-image.png" />
+
+    <!-- Dados Estruturados JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "MascaraAI",
+      "url": "https://mascaraai.com",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "BRL"
+      },
+      "description": "API Gateway e higienizador de dados clínicos (PII/PHI) ultra-rápido baseado em Cloudflare Workers para mascaramento de prontuários antes do envio à IA.",
+      "featureList": "Mascaramento PII/PHI local, validação matemática de CPF/CNPJ, motor NER híbrido, zero compartilhamento de dados na nuvem"
+    }
+    </script>
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
     <style>
         :root {
@@ -811,7 +850,7 @@ Paciente: <span class="pii-tag tag-nome" data-original="Carlos Alberto de Olivei
                     <span class="accordion-trigger-icon">📊</span>
                     <div>
                         <div class="accordion-trigger-text">Quadro de Eficácia da Anonimização</div>
-                        <div class="accordion-trigger-sub">F1 99,88% · Precisão 99,76% · Recall 100% — 1.699 casos clínicos testados</div>
+                        <div class="accordion-trigger-sub">F1 99,88% · Precisão 99,76% · Recall 100% — 1.699 casos clínicos sintéticos testados</div>
                     </div>
                 </div>
                 <span class="accordion-chevron">▼</span>
@@ -820,7 +859,7 @@ Paciente: <span class="pii-tag tag-nome" data-original="Carlos Alberto de Olivei
               <div class="accordion-body-inner" style="padding: 40px;">
             <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 40px; box-shadow: 0 4px 30px rgba(19, 32, 28, 0.02);">
                 <h2 class="section-title" style="text-align: center; margin-bottom: 12px;">Quadro de Eficácia da Anonimização</h2>
-                <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 12px auto;">Resultados medidos em benchmark próprio com <strong>1.699 casos clínicos reais</strong> — laudos, UTI, resumos de alta, notificações SINAN e RAG. Permite dimensionar o risco residual antes de compartilhar prontuários com modelos de IA.</p>
+                <p class="section-subtitle" style="text-align: center; max-width: 700px; margin: 0 auto 12px auto;">Resultados medidos em benchmark próprio utilizando <strong>1.699 casos clínicos sintéticos</strong> (desenvolvidos com base em dados reais previamente anonimizados e descaracterizados de fontes públicas livres na internet). Não utilizamos dados de pacientes reais para testes.</p>
 
                 <!-- Badge de resultado geral -->
                 <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 32px;">
@@ -903,7 +942,7 @@ Paciente: <span class="pii-tag tag-nome" data-original="Carlos Alberto de Olivei
                  </div>
                 
                 <div style="background: rgba(19, 32, 28, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; font-size: 0.9rem; color: var(--ink-main); line-height: 1.7;">
-                    <strong>Minimização de Exposição como Foco:</strong> O MascaraAI reduz de forma massiva a superfície de exposição de dados de pacientes (PII/PHI). O benchmark interno valida Recall de 100% — <em>nenhum dado identificável esperado foi omitido</em>. Os 30 erros restantes (de 1.699) são falsos positivos em nomes de instituições hospitalares, mantendo sua auditoria de risco previsível. A conferência final permanece com o profissional responsável.
+                    <strong>Minimização de Exposição como Foco:</strong> O MascaraAI reduz de forma massiva a superfície de exposição de dados de pacientes (PII/PHI). O benchmark interno (realizado com 1.699 casos clínicos sintéticos construídos a partir de dados reais anonimizados públicos livres) valida Recall de 100% — <em>nenhum dado identificável esperado foi omitido</em>. Os 30 erros restantes são falsos positivos em nomes de instituições hospitalares, mantendo sua auditoria de risco previsível. A conferência final permanece com o profissional responsável.
                 </div>
             </div>
               </div>
